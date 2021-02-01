@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         b1 = findViewById(R.id.btnsignin);
+        //yo
         b2 = findViewById(R.id.btnsignup);
         mAuth=FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser() != null) {
