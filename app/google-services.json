@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1082585378301",
+    "project_id": "wize-675b2",
+    "storage_bucket": "wize-675b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1082585378301:android:5ae77be114f9f4e4f77d94",
+        "android_client_info": {
+          "package_name": "com.example.wize"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1082585378301-vfvua19ugmctb3q99jbguujovb8hfbvs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1X9i11DLEG2uYWjc_ssp444OxaNlLOHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1082585378301-vfvua19ugmctb3q99jbguujovb8hfbvs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

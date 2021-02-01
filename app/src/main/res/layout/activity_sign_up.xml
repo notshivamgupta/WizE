@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/flnme"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="30dp"
+        android:paddingHorizontal="30dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/input"
+        android:paddingBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="40:6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rti1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/input"
+            android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+            android:hint="Enter Full Name"
+            android:inputType="text"
+            android:textColorHint="#000000" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/eml"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="30dp"
+        android:paddingHorizontal="30dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="8dp"
+        android:background="@drawable/input"
+        app:layout_constraintBottom_toTopOf="@id/pass"
+        app:layout_constraintDimensionRatio="40:6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/flnme"
+        app:layout_constraintVertical_bias="0.55">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rti2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/ic_baseline_email_24"
+            android:hint="Enter Your Email"
+            android:inputType="text"
+            android:background="@drawable/input"
+            android:textColorHint="#000000" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pass"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="30dp"
+        android:paddingHorizontal="30dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/cnfpass"
+        app:layout_constraintDimensionRatio="40:6"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/input"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/eml"
+        app:layout_constraintVertical_bias="0.65"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rti3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/input"
+            android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+            android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
+            android:hint="Enter Password"
+            android:inputType="textPassword"
+            android:textColorHint="#000000" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cnfpass"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="30dp"
+        android:paddingHorizontal="30dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="40:6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:background="@drawable/input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cnfpass"
+        app:layout_constraintVertical_bias="0.75"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rti4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/input"
+            android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+            android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:textColorHint="#000000" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.883" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
