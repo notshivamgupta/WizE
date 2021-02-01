@@ -63,7 +63,7 @@ public class SignIn extends AppCompatActivity {
                 .requestEmail()
                 .build();
         googleSignInClient= GoogleSignIn.getClient(this,gso);
-        sign.setOnClickListener(new View.OnClickListener() {
+        sign.setOnClickListener(new View.OnClickListener() { 
             @Override
             public void onClick(View view) {
                 signin();
