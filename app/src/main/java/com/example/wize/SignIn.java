@@ -44,9 +44,8 @@ public class SignIn extends AppCompatActivity {
     private TextView forgotpassword;
     private FirebaseAuth mAuth;
     Button sgn;
-    GoogleSignInButton sign;
+    Button sign;
     private GoogleSignInClient googleSignInClient;
-    //SignInButton sign;
     private int RC_SIGN_IN=1;
     private TextInputEditText st1,st2;
     @Override
