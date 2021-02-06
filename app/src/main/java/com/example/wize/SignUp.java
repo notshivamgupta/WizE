@@ -3,12 +3,15 @@ package com.example.wize;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,6 +33,8 @@ public class SignUp extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseFirestore db;
     String userId;
+    Dialog dialog;
+    ImageView ig;
     public static final String TAG = "Tag";
     Button button;
     @Override
@@ -41,8 +46,14 @@ public class SignUp extends AppCompatActivity {
         Rt1 = findViewById(R.id.rti1);
         Rt2 = findViewById(R.id.rti2);
         Rt3 = findViewById(R.id.rti3);
+        ig=findViewById(R.id.imageView3);
         button = findViewById(R.id.btn1);
-
+        ig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SignUp.this,SignIn.class));
+            }
+        });
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -75,6 +86,10 @@ public class SignUp extends AppCompatActivity {
                                 users.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
+
+                                      /*  dialog=new Dialog(SignUp.this);
+                                        dialog.*/
+
                                         Toast.makeText(SignUp.this, "Verification Email has been sent", Toast.LENGTH_SHORT).show();
 
                                     }

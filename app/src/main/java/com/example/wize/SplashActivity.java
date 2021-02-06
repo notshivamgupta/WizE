@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SplashActivity extends AppCompatActivity {
 FirebaseAuth mAuth;
@@ -21,10 +22,11 @@ TextView b;
         setContentView(R.layout.activity_splash);
         b=findViewById(R.id.splashtext);
         mAuth= FirebaseAuth.getInstance();
+        FirebaseUser users=mAuth.getCurrentUser();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (mAuth.getCurrentUser() != null) {
+                if ((mAuth.getCurrentUser() != null) && users.isEmailVerified()) {
                     startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                     finish();
                 }

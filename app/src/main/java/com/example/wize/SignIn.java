@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,8 @@ public class SignIn extends AppCompatActivity {
     private FirebaseAuth mAuth;
     Button sgn;
     Button sign;
+    ImageView ab;
+    TextView sgnup;
     private GoogleSignInClient googleSignInClient;
     private int RC_SIGN_IN=1;
     private TextInputEditText st1,st2;
@@ -57,8 +60,22 @@ public class SignIn extends AppCompatActivity {
         sgn=findViewById(R.id.btnsgn);
         st1=findViewById(R.id.sti1);
         st2=findViewById(R.id.sti2);
+        ab=findViewById(R.id.appclose);
+        sgnup=findViewById(R.id.butntogosignup);
         sign=findViewById(R.id.signInButton);
-
+      /*  ab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                System.exit(0);
+            }
+        });*/
+        sgnup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SignIn.this,SignUp.class));
+            }
+        });
         GoogleSignInOptions gso = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))

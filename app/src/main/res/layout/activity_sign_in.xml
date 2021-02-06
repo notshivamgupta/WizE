@@ -6,66 +6,101 @@
     android:layout_height="match_parent"
     tools:context=".SignIn">
 
+    <ImageView
+        android:id="@+id/appclose"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_cross"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
         android:text="Login"
         android:textColor="@color/black"
-        android:textSize="36dp"
+        android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.455" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/montserrat"
-        android:text="You are new?"
+        android:text="You are new ?"
         android:textColor="@color/black"
         android:textSize="15dp"
-         />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signInButton" />
+
+    <TextView
+        android:id="@+id/butntogosignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Create Account"
+        android:textColor="#F95A2C"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/signInButton" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="283dp"
         android:layout_height="271dp"
+        android:layout_marginTop="40dp"
+
         android:src="@drawable/logoforsignin"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.617"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="330dp"
-        android:background="@drawable/allinputsignin"
         android:layout_height="55dp"
         android:layout_marginHorizontal="30dp"
-        android:paddingHorizontal="30dp"
+        android:background="@drawable/allinputsignin"
+        android:paddingHorizontal="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="40:6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.537">
+        app:hintEnabled="false"
+        app:layout_constraintDimensionRatio="40:6"
+        app:layout_constraintVertical_bias="0.53">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sti1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="#ffff"
+            android:drawableLeft="@drawable/ic_user"
+            android:drawablePadding="15dp"
             android:inputType="text"
-            android:textColor="#ffff"
-            android:textColorHint="#000000"
-            android:textSize="15dp" />
+            android:textCursorDrawable="@drawable/cursor"
+            android:background="@android:color/transparent"
+            android:hint="Email address"
+            android:fontFamily="@font/montserrat"
+            android:textColorHint="@color/black"
+            android:textSize="25dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -74,12 +109,13 @@
         android:layout_height="55dp"
         android:layout_marginHorizontal="30dp"
         android:background="@drawable/allinputsignin"
-        android:paddingHorizontal="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingHorizontal="15dp"
         app:layout_constraintDimensionRatio="40:6"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
+        app:hintEnabled="false"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.641"
         app:passwordToggleEnabled="true">
@@ -89,10 +125,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="#ffff"
+            android:textSize="25dp"
+            android:background="@android:color/transparent"
             android:inputType="textPassword"
-            android:textColor="#ffff"
-            android:textColorHint="#000000"
-            android:textSize="15dp" />
+            android:drawablePadding="15dp"
+            android:fontFamily="@font/montserrat"
+            android:textCursorDrawable="@drawable/cursor"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawableLeft="@drawable/ic_lock"
+            android:textColor="@color/black"
+            android:hint="Password"
+            android:textColorHint="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -107,10 +150,10 @@
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.979"
+        app:layout_constraintHorizontal_bias="0.989"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.683" />
+        app:layout_constraintVertical_bias="0.686" />
 
     <Button
         android:id="@+id/btnsgn"
@@ -118,29 +161,29 @@
         android:layout_height="60dp"
         android:background="@drawable/allbtnback"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Sign In"
+        android:text="Sign In   >"
         android:textAllCaps="false"
         android:textColor="#ffff"
-        android:textSize="24dp"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.767" />
+        app:layout_constraintVertical_bias="0.769" />
 
     <Button
         android:id="@+id/signInButton"
-        android:layout_width="325dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="44dp"
-        android:paddingLeft="40dp"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
-        android:drawableLeft="@drawable/ic_flat_color_icons_google"
         android:background="@drawable/allinputsignin"
+        android:drawableLeft="@drawable/ic_flat_color_icons_google"
         android:fontFamily="@font/poppins_bold"
-        android:text="sign in with Google"
+        android:paddingLeft="40dp"
+        android:text="Sign in with Google"
         android:textAllCaps="false"
         android:textColor="#8A8A8A"
         android:textSize="18dp"
