@@ -19,18 +19,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
         android:layout_marginLeft="88dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Password"
-        android:textColor="#ffff"
+        android:fontFamily="@font/montserrat"
+        android:text="You are new?"
+        android:textColor="@color/black"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
-        app:layout_constraintStart_toStartOf="parent" />
-
+         />
 
     <ImageView
         android:id="@+id/imageView2"
