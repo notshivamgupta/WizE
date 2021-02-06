@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SignUp extends AppCompatActivity {
-    private TextInputEditText Rt1,Rt2,Rt3,Rt4;
+    private TextInputEditText Rt1,Rt2,Rt3;
     private FirebaseAuth mAuth;
     FirebaseFirestore db;
     String userId;
@@ -41,7 +41,6 @@ public class SignUp extends AppCompatActivity {
         Rt1 = findViewById(R.id.rti1);
         Rt2 = findViewById(R.id.rti2);
         Rt3 = findViewById(R.id.rti3);
-        Rt4 = findViewById(R.id.rti4);
         button = findViewById(R.id.btn1);
 
             button.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +49,11 @@ public class SignUp extends AppCompatActivity {
                     final String Email = Rt2.getText().toString().trim();
                     final String Pass = Rt3.getText().toString().trim();
                     final String Name = Rt1.getText().toString();
+                    if (TextUtils.isEmpty(Name)) {
+
+                        Rt1.setError("Name is Required");
+                        return;
+                    }
                     if (TextUtils.isEmpty(Email)) {
 
                         Rt2.setError("Email is Required");

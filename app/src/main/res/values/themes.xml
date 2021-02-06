@@ -7,6 +7,15 @@
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">#FFFCDF</item>
+        <item name="colorAccent">#3B56F1</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#000000</item>
+        <item name="colorPrimaryDark">#000000</item>
+    </style>
     <style name="Theme.WizE.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

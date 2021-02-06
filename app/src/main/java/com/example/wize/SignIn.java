@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -33,6 +34,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.shobhitpuri.custombuttons.GoogleSignInButton;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,8 +44,9 @@ public class SignIn extends AppCompatActivity {
     private TextView forgotpassword;
     private FirebaseAuth mAuth;
     Button sgn;
+    GoogleSignInButton sign;
     private GoogleSignInClient googleSignInClient;
-    SignInButton sign;
+    //SignInButton sign;
     private int RC_SIGN_IN=1;
     private TextInputEditText st1,st2;
     @Override
@@ -122,19 +125,18 @@ public class SignIn extends AppCompatActivity {
             public void onClick(View view) {
 
                 final EditText resetMail = new EditText(view.getContext());
-                final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(view.getContext());
+                final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(view.getContext(),R.style.CustomDialogTheme);
                 passwordResetDialog.setTitle("Reset Password ?");
-                passwordResetDialog.setMessage("Enter Your Email To Received Reset Link.");
+                passwordResetDialog.setMessage("Enter Your Email To Receive The Password Reset Link.");
                 passwordResetDialog.setView(resetMail);
-
-                passwordResetDialog.setCancelable(true).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                passwordResetDialog.setCancelable(true).setPositiveButton("Send", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String mail = resetMail.getText().toString();
                         mAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(SignIn.this, "Reset Link Sent To Your Email.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignIn.this, "Password Reset Link Sent To Your Email.", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -142,16 +144,8 @@ public class SignIn extends AppCompatActivity {
                                 Toast.makeText(SignIn.this, "Error ! Reset Link is Not Sent" + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
-
                     }
                 });
-
-                passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-
                 passwordResetDialog.create().show();
 
             }

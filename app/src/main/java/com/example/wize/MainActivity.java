@@ -17,19 +17,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         b1 = findViewById(R.id.btnsignin);
-        //yo
         b2 = findViewById(R.id.btnsignup);
-        mAuth=FirebaseAuth.getInstance();
-        if (mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-            finish();
-        } else {
+
             b1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MainActivity.this, SignIn.class);
                     startActivity(intent);
-                    finish();
+
                 }
             });
             b2.setOnClickListener(new View.OnClickListener() {
@@ -37,9 +32,8 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent1 = new Intent(MainActivity.this, SignUp.class);
                     startActivity(intent1);
-                    finish();
+
                 }
             });
-        }
     }
 }
