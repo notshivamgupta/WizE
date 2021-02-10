@@ -9,34 +9,34 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="291dp"
-        android:layout_height="272dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="68dp"
         android:fontFamily="@font/poppins_bold"
+
         android:src="@drawable/puplebg"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="253dp"
-        android:layout_height="224dp"
+        android:layout_width="270dp"
+        android:layout_height="276dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="52dp"
         android:fontFamily="@font/poppins_bold"
         android:src="@drawable/getstarted1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.252" />
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <Button
         android:id="@+id/getstarted"
-        android:layout_width="283dp"
-        android:layout_height="54dp"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/getstarted"
         android:fontFamily="@font/montserrat_bold"
         android:text="Get Started  >"
@@ -44,43 +44,38 @@
         android:textColor="@color/white"
         android:textSize="24dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.853" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="238dp"
         android:layout_height="39dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="One stop for wise."
         android:textColor="#969BAB"
         android:textSize="24dp"
-        android:textStyle="bold"
-        android:fontFamily="@font/montserrat_bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.277"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.529" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="262dp"
-        android:layout_height="136dp"
+        android:layout_width="298dp"
+        android:layout_height="173dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Welcome to Wize Community"
         android:textColor="#18191F"
-        android:textSize="34dp"
+        android:textSize="44dp"
         android:textStyle="bold"
-        android:fontFamily="@font/montserrat_bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.322"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

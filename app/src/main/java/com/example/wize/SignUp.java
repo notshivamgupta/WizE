@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,7 +36,10 @@ public class SignUp extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseFirestore db;
     String userId;
-    Dialog dialog;
+    Button sgnvrf;
+    ImageView cutvrf;
+    private AlertDialog.Builder builder;
+    private AlertDialog dialog;
     ImageView ig;
     public static final String TAG = "Tag";
     Button button;
@@ -84,14 +90,29 @@ public class SignUp extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 FirebaseUser users = mAuth.getCurrentUser();
                                 users.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+
                                     @Override
                                     public void onSuccess(Void aVoid) {
-
-                                      /*  dialog=new Dialog(SignUp.this);
-                                        dialog.*/
-
-                                        Toast.makeText(SignUp.this, "Verification Email has been sent", Toast.LENGTH_SHORT).show();
-
+                                        builder = new AlertDialog.Builder(SignUp.this);
+                                        final View view = getLayoutInflater().inflate(R.layout.verificationmail,null);
+                                        builder.setView(view);
+                                        dialog = builder.create();
+                                        dialog.show();
+                                        cutvrf=(ImageView) dialog.findViewById(R.id.cutverification);
+                                        sgnvrf=(Button) dialog.findViewById(R.id.signfromverif);
+                                        cutvrf.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
+                                                dialog.dismiss();
+                                            }
+                                        });
+                                        sgnvrf.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
+                                                startActivity(new Intent(SignUp.this,SignIn.class));
+                                                finish();
+                                            }
+                                        });
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
@@ -111,11 +132,8 @@ public class SignUp extends AppCompatActivity {
                                         Log.d(TAG, "On Success: User Profile Created for" + userId);
                                     }
                                 });
-                                Intent intent = new Intent(SignUp.this, SignIn.class);
-                                startActivity(intent);
-                                finish();
                             } else {
-                                Toast.makeText(SignUp.this, "Error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                Snackbar.make(view, "Error!" + task.getException().getMessage(), Snackbar.LENGTH_LONG).show();
                             }
 
                         }

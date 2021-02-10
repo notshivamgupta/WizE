@@ -1,6 +1,7 @@
 package com.example.wize;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +29,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -34,7 +37,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.shobhitpuri.custombuttons.GoogleSignInButton;
 
 import java.util.HashMap;
@@ -47,7 +56,13 @@ public class SignIn extends AppCompatActivity {
     Button sgn;
     Button sign;
     ImageView ab;
+    private android.app.AlertDialog.Builder builder;
+    private android.app.AlertDialog dialog;
     TextView sgnup;
+    EditText restmail;
+    FirebaseFirestore fStore;
+    Button restbtn;
+    ImageView cutrest;
     private GoogleSignInClient googleSignInClient;
     private int RC_SIGN_IN=1;
     private TextInputEditText st1,st2;
@@ -59,17 +74,18 @@ public class SignIn extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         sgn=findViewById(R.id.btnsgn);
         st1=findViewById(R.id.sti1);
+        fStore=FirebaseFirestore.getInstance();
         st2=findViewById(R.id.sti2);
         ab=findViewById(R.id.appclose);
         sgnup=findViewById(R.id.butntogosignup);
         sign=findViewById(R.id.signInButton);
-      /*  ab.setOnClickListener(new View.OnClickListener() {
+        ab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
                 System.exit(0);
             }
-        });*/
+        });
         sgnup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -118,20 +134,40 @@ public class SignIn extends AppCompatActivity {
                             FirebaseUser users=mAuth.getCurrentUser();
                             if (users.isEmailVerified()){
                                 Toast.makeText(SignIn.this, "Login Sucessful!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(SignIn.this, HomeActivity.class);
-                                startActivity(intent);
-                                finish();
+
+                                String userId=FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                DocumentReference documentReference = FirebaseFirestore.getInstance().collection("Users").document(userId);
+                                documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            DocumentSnapshot document = task.getResult();
+                                            if (document.exists()) {
+                                                if (document.get("User_Interests") != null && document.get("UserName") != null ) {
+                                                    startActivity(new Intent(SignIn.this,HomeActivity.class));
+                                                    finish();
+                                                }
+                                                else {
+                                                    startActivity(new Intent(SignIn.this, Intrests_Page.class));
+                                                    finish();
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                });
                             }
                             else {
-
-                                Toast.makeText(SignIn.this, "Email not Verified", Toast.LENGTH_SHORT).show();
+                                Snackbar.make(view, "Email not Verified!", Snackbar.LENGTH_LONG).show();
                             }
                         }
                         else {
-                            Toast.makeText(SignIn.this, "Login Failed!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Snackbar.make(view, "Login Failed!", Snackbar.LENGTH_LONG).show();
                         }
                     }
                 });
+
+
             }
         });
 
@@ -140,19 +176,32 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                final EditText resetMail = new EditText(view.getContext());
-                final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(view.getContext(),R.style.CustomDialogTheme);
-                passwordResetDialog.setTitle("Reset Password ?");
-                passwordResetDialog.setMessage("Enter Your Email To Receive The Password Reset Link.");
-                passwordResetDialog.setView(resetMail);
-                passwordResetDialog.setCancelable(true).setPositiveButton("Send", new DialogInterface.OnClickListener() {
+                builder = new android.app.AlertDialog.Builder(SignIn.this);
+                final View vie = getLayoutInflater().inflate(R.layout.forgotpassword,null);
+                builder.setView(vie);
+                dialog = builder.create();
+                dialog.show();
+                cutrest=(ImageView) dialog.findViewById(R.id.cutresetmail);
+                restbtn=(Button) dialog.findViewById(R.id.resetpass);
+                restmail=(EditText) dialog.findViewById(R.id.editText);
+                cutrest.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String mail = resetMail.getText().toString();
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                restbtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String mail=restmail.getText().toString();
+                        if(TextUtils.isEmpty(mail)) {
+                            restmail.setError("Email is Required");
+                            return;
+                        }
                         mAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(SignIn.this, "Password Reset Link Sent To Your Email.", Toast.LENGTH_SHORT).show();
+                                Snackbar.make(view, "Password Reset Link Sent To Your Email.", Snackbar.LENGTH_LONG).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -160,10 +209,14 @@ public class SignIn extends AppCompatActivity {
                                 Toast.makeText(SignIn.this, "Error ! Reset Link is Not Sent" + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                dialog.dismiss();
+                            }
+                        },4000);
                     }
                 });
-                passwordResetDialog.create().show();
-
             }
         });
     }
@@ -186,7 +239,7 @@ public class SignIn extends AppCompatActivity {
 
         try {
             GoogleSignInAccount account =task.getResult(ApiException.class);
-            Toast.makeText(this, "Sign In Sucessfull", Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(this, "Sign In Sucessfull", Toast.LENGTH_SHORT).show();
             firebaseAuthWithGoogle(account.getIdToken());
         } catch (ApiException e) {
             Toast.makeText(this, "Google sign in failed", Toast.LENGTH_SHORT).show();
@@ -222,19 +275,34 @@ public class SignIn extends AppCompatActivity {
             String Email=account.getEmail();
             String userId=FirebaseAuth.getInstance().getCurrentUser().getUid();
             DocumentReference documentReference = FirebaseFirestore.getInstance().collection("Users").document(userId);
-            Map<String, Object> user = new HashMap<>();
-            user.put("Full_Name", Name);
-            user.put("Email_Id", Email);
-            user.put("User_Id", userId);
-            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+            documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
-                public void onSuccess(Void aVoid) {
-                    Log.d(TAG, "On Success: User Profile Created for" + userId);
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            if ((document.get("Full_Name") != null && document.get("User_Interests") != null && document.get("UserName") != null)) {
+                                startActivity(new Intent(SignIn.this,HomeActivity.class));
+                                finish();
+                            }
+                        }
+                        else {
+                            Map<String, Object> user = new HashMap<>();
+                            user.put("Full_Name", Name);
+                            user.put("Email_Id", Email);
+                            user.put("User_Id", userId);
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d(TAG, "On Success: User Profile Created for" + userId);
+                                }
+                            });
+                            startActivity(new Intent(SignIn.this, Intrests_Page.class));
+                            finish();
+                        }
+                    }
                 }
             });
-
-            Toast.makeText(this, "Welcome"+Name, Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(SignIn.this,HomeActivity.class));
         }
     }
 }
