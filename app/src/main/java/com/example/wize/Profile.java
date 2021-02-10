@@ -11,7 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -20,7 +22,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Profile extends Fragment {
 
-    Button logout;
+    Button logout,edit;
+    ImageView back;
+    ToggleButton menu;
     private GoogleSignInClient googleSignInClient;
 
 
@@ -32,14 +36,38 @@ public class Profile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_profile, container, false);
-
+        menu=view.findViewById(R.id.imageView6);
+        back=view.findViewById(R.id.backfromprofile);
         logout=view.findViewById(R.id.buttonLo);
+        edit=view.findViewById(R.id.buttonedit);
         GoogleSignInOptions gso = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
         googleSignInClient= GoogleSignIn.getClient(getActivity(),gso);
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (menu.isChecked()) {
+                    logout.setVisibility(view.VISIBLE);
+                    edit.setVisibility(view.VISIBLE);
+                }
+                else
+                {
+                    logout.setVisibility(view.INVISIBLE);
+                    edit.setVisibility(view.INVISIBLE);
+                }
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),HomeActivity.class));
+                getActivity().finish();
+            }
+        });
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
