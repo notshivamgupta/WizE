@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -19,6 +21,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class Profile extends Fragment {
 
@@ -26,6 +33,10 @@ public class Profile extends Fragment {
     ImageView back;
     ToggleButton menu;
     private GoogleSignInClient googleSignInClient;
+    FirebaseAuth firebaseAuth;
+    FirebaseFirestore fStore;
+    String userId;
+    TextView name,username,friends,posts,groups;
 
 
     public Profile() {
@@ -93,8 +104,37 @@ public class Profile extends Fragment {
                 });
                 alertBuilder.show();
             }
+
         });
 
+        name=view.findViewById(R.id.textView11);
+        username=view.findViewById(R.id.textView12);
+        posts=view.findViewById(R.id.textView14);
+        groups=view.findViewById(R.id.textView13);
+        friends=view.findViewById(R.id.textView15);
+
+        firebaseAuth= FirebaseAuth.getInstance();
+        fStore= FirebaseFirestore.getInstance();
+        userId=firebaseAuth.getCurrentUser().getUid();
+        DocumentReference documentReference= fStore.collection("Users").document(userId);
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                String names=value.getString("Full_Name");
+                String usernames=value.getString("UserName");
+                long friend= value.getLong("Friends");
+                long post= value.getLong("Posts");
+                long group= value.getLong("Groups");
+
+                name.setText(names);
+                username.setText(usernames);
+                posts.setText(String.valueOf(post));
+                groups.setText(String.valueOf(group));
+                friends.setText(String.valueOf(friend));
+
+            }
+        });
         return view;
     }
 }
