@@ -177,6 +177,8 @@
         android:layout_width="330dp"
         android:layout_height="60dp"
         android:layout_marginTop="36dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
         android:background="@drawable/allinputsignin"
         android:drawableLeft="@drawable/ic_flat_color_icons_google"
         android:fontFamily="@font/poppins_bold"
@@ -186,7 +188,6 @@
         android:textColor="#8A8A8A"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnsgn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

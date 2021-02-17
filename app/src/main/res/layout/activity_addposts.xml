@@ -6,80 +6,129 @@
     android:layout_height="match_parent"
     tools:context=".Addposts">
 
+
     <EditText
         android:id="@+id/textforpost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="355dp"
+        android:layout_height="103dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/allinputsignin"
+        android:fontFamily="@font/montserrat"
         android:gravity="top|left"
-        android:hint="Enter your text here..."
+        android:hint="Write something..."
         android:inputType="textMultiLine"
         android:padding="15dp"
         android:scrollbars="vertical"
+        android:textSize="21dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textforpost">
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/galary" />
-        <TextView
-            android:id="@+id/linearlayout1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:clickable="true"
-            android:text="Photo/Gallery"
-            android:textColor="#265628"
-            android:textSize="20dp"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="179dp" />
-
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
     <Button
         android:id="@+id/post"
         android:layout_width="330dp"
         android:layout_height="56dp"
-        android:fontFamily="@font/montserrat_bold"
+        android:layout_marginBottom="44dp"
         android:background="@drawable/allbtnback"
-        android:text="POST"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Upload Post"
         android:textAllCaps="false"
         android:textColor="#fff"
-        android:textSize="21dp"
 
-        app:layout_constraintVertical_bias="0.1"
+        android:textSize="21dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageViewaddpst"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="33dp"
+        android:background="@drawable/addpostdefimage"
         android:padding="5dp"
-        android:src="@mipmap/logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post"
+        app:layout_constraintTop_toBottomOf="@+id/textforpost"
         app:shapeAppearanceOverlay="@style/RoundedSquare"
         app:strokeColor="@color/black"
         app:strokeWidth="2dp" />
+
+    <ImageView
+        android:id="@+id/backfromaddpost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_outline___icon_only"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="144dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Add Post"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black"
+        android:layout_marginTop="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="122dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Max 500 characters"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textforpost" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Add Tags"
+        android:textColor="@color/black"
+        android:textSize="27dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewaddpst" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="118dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
+        android:text="(Select any two)"
+        android:textSize="14dp"
+        app:layout_constraintStart_toEndOf="@+id/textView26"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewaddpst" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,45 +32,45 @@ String userId;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addposts);
-         addphoto=findViewById(R.id.linearlayout1);
+         //addphoto=findViewById(R.id.linearlayout1);
         imageSelected = findViewById(R.id.imageViewaddpst);
         firebaseAuth= FirebaseAuth.getInstance();
         fStore= FirebaseFirestore.getInstance();
         userId=firebaseAuth.getCurrentUser().getUid();
-        addphoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(openGallery,1000);
-            }
-        });
+//        addphoto.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//                startActivityForResult(openGallery,1000);
+//            }
+//        });
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1000 && resultCode == RESULT_OK){
-            Uri imageUri = data.getData();
-            if(imageUri!= null) {
-                UCrop uCrop =  UCrop.of(imageUri, Uri.fromFile(new File(getCacheDir(), System.currentTimeMillis() + ".jpg" )));
-                uCrop.withAspectRatio(1, 1);
-                uCrop.withMaxResultSize(1000, 1000);
-                uCrop.start(Addposts.this);
-                uCrop.withOptions(getCropOptions());
-            }
-        }
-        else if(requestCode == UCrop.REQUEST_CROP && resultCode == RESULT_OK){
-            uri = UCrop.getOutput(data);
-            imageSelected.setImageURI(uri);
-            imageSelected.setVisibility(View.VISIBLE);
-        }
-    }
-
-    public UCrop.Options getCropOptions() {
-        UCrop.Options options = new UCrop.Options();
-        options.setHideBottomControls(false);
-        options.setCompressionQuality(100);
-        options.setMaxBitmapSize(10000);
-        return options;
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if(requestCode == 1000 && resultCode == RESULT_OK){
+//            Uri imageUri = data.getData();
+//            if(imageUri!= null) {
+//                UCrop uCrop =  UCrop.of(imageUri, Uri.fromFile(new File(getCacheDir(), System.currentTimeMillis() + ".jpg" )));
+//                uCrop.withAspectRatio(1, 1);
+//                uCrop.withMaxResultSize(1000, 1000);
+//                uCrop.start(Addposts.this);
+//                uCrop.withOptions(getCropOptions());
+//            }
+//        }
+//        else if(requestCode == UCrop.REQUEST_CROP && resultCode == RESULT_OK){
+//            uri = UCrop.getOutput(data);
+//            imageSelected.setImageURI(uri);
+//            imageSelected.setVisibility(View.VISIBLE);
+//        }
+//    }
+//
+//    public UCrop.Options getCropOptions() {
+//        UCrop.Options options = new UCrop.Options();
+//        options.setHideBottomControls(false);
+//        options.setCompressionQuality(100);
+//        options.setMaxBitmapSize(10000);
+//        return options;
+//    }
 
 }

@@ -37,15 +37,15 @@ public class Home_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       View view=inflater.inflate(R.layout.fragment_home_, container, false);
-       addpost=view.findViewById(R.id.addpost);
-       rv=view.findViewById(R.id.recyclerView2);
-       addpost.setOnClickListener(new View.OnClickListener()
-       {@Override
-       public void onClick(View view) {
-           startActivity(new Intent(getActivity(),Addposts.class));
-       }
-       });
+        View view=inflater.inflate(R.layout.fragment_home_, container, false);
+        addpost=view.findViewById(R.id.addpost);
+        rv=view.findViewById(R.id.recyclerView2);
+        addpost.setOnClickListener(new View.OnClickListener()
+        {@Override
+        public void onClick(View view) {
+            startActivity(new Intent(getActivity(),Addposts.class));
+        }
+        });
         rv.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.HORIZONTAL));
         addHomeTagsAdapter=new AddHomeTagsAdapter(list);
         rv.setAdapter(addHomeTagsAdapter);
