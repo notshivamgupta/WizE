@@ -22,8 +22,7 @@ import com.yalantis.ucrop.UCrop;
 import java.io.File;
 
 public class Addposts extends AppCompatActivity {
-TextView name;
-String nm,userId;
+String userId;
     FirebaseAuth firebaseAuth;
     FirebaseFirestore fStore;
     TextView addphoto;
@@ -33,20 +32,11 @@ String nm,userId;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addposts);
-         name=findViewById(R.id.usernameinaddpost);
          addphoto=findViewById(R.id.linearlayout1);
         imageSelected = findViewById(R.id.imageViewaddpst);
         firebaseAuth= FirebaseAuth.getInstance();
         fStore= FirebaseFirestore.getInstance();
         userId=firebaseAuth.getCurrentUser().getUid();
-        DocumentReference documentReference= fStore.collection("Users").document(userId);
-        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                nm=value.getString("Full_Name");
-                name.setText(nm);
-            }
-        });
         addphoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
