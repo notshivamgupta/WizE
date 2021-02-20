@@ -55,5 +55,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.1.0-alpha04'
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
     implementation 'com.github.yalantis:ucrop:2.2.6'
-
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.firebaseui:firebase-ui-firestore:6.3.0'
+    compile 'com.borjabravo:readmoretextview:2.1.0'
 }

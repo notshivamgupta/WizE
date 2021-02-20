@@ -10,7 +10,7 @@
     <EditText
         android:id="@+id/textforpost"
         android:layout_width="355dp"
-        android:layout_height="103dp"
+        android:layout_height="130dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/allinputsignin"
         android:fontFamily="@font/montserrat"
@@ -18,8 +18,10 @@
         android:hint="Write something..."
         android:inputType="textMultiLine"
         android:padding="15dp"
+        android:textCursorDrawable="@drawable/cursor"
         android:scrollbars="vertical"
         android:textSize="21dp"
+        android:maxLength="250"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
@@ -28,7 +30,7 @@
         android:id="@+id/post"
         android:layout_width="330dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/allbtnback"
         android:fontFamily="@font/montserrat_bold"
         android:text="Upload Post"
@@ -36,10 +38,10 @@
         android:textColor="#fff"
 
         android:textSize="21dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gamedevaddpost" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageViewaddpst"
@@ -98,7 +100,7 @@
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
         android:fontFamily="@font/montserrat"
-        android:text="Max 500 characters"
+        android:text="Max 250 characters"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textforpost" />
@@ -129,6 +131,200 @@
         android:textSize="14dp"
         app:layout_constraintStart_toEndOf="@+id/textView26"
         app:layout_constraintTop_toBottomOf="@+id/imageViewaddpst" />
+
+    <ToggleButton
+        android:id="@+id/appdevaddpost"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="App development"
+        android:textOn="App development"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+    <ToggleButton
+        android:id="@+id/webdevaddpost"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="5dp"
+        android:textAllCaps="false"
+        android:textOff="Web development"
+        android:textOn="Web development"
+        app:layout_constraintStart_toEndOf="@+id/appdevaddpost"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+    <ToggleButton
+        android:id="@+id/oopaddpost"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="Object oriented programing"
+        android:textOn="Object oriented programing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appdevaddpost" />
+
+    <ToggleButton
+        android:id="@+id/ml_aiaddpost"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="Ml/AI"
+        android:textOn="Ml/AI"
+        app:layout_constraintStart_toEndOf="@+id/webdevaddpost"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+
+    <ToggleButton
+        android:id="@+id/Grpdgnaddpost"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="Graphic design"
+        android:textOn="Graphic design"
+        app:layout_constraintStart_toEndOf="@+id/oopaddpost"
+        app:layout_constraintTop_toBottomOf="@+id/ml_aiaddpost" />
+
+    <ToggleButton
+        android:id="@+id/digmaraddpost"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="Digital marketing"
+        android:textOn="Digital marketing"
+        app:layout_constraintStart_toEndOf="@+id/photaddpost"
+        app:layout_constraintTop_toBottomOf="@+id/Grpdgnaddpost" />
+
+    <ToggleButton
+        android:id="@+id/photaddpost"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+
+        android:textOff="Photography"
+        android:textOn="Photography"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Grpdgnaddpost" />
+
+    <ToggleButton
+        android:id="@+id/finaddpost"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="Finance"
+        android:textOn="Finance"
+        app:layout_constraintStart_toEndOf="@+id/entrepreneurshipaddpost"
+        app:layout_constraintTop_toBottomOf="@+id/cybsecaddpost" />
+
+    <ToggleButton
+        android:id="@+id/cybsecaddpost"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="Cyber security"
+        android:textOn="Cyber security"
+        app:layout_constraintStart_toEndOf="@+id/digmaraddpost"
+        app:layout_constraintTop_toBottomOf="@+id/Grpdgnaddpost" />
+
+    <ToggleButton
+        android:id="@+id/comskillsaddpost"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="Communication skills"
+        android:textOn="Communication skills"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photaddpost" />
+
+    <ToggleButton
+        android:id="@+id/entrepreneurshipaddpost"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="Entrepreneurship"
+        android:textOn="Entrepreneurship"
+        app:layout_constraintStart_toEndOf="@+id/comskillsaddpost"
+        app:layout_constraintTop_toBottomOf="@+id/cybsecaddpost" />
+
+    <ToggleButton
+        android:id="@+id/gamedevaddpost"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="3d and Game development"
+        android:textOn="3d and Game development"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comskillsaddpost" />
+
+    <ToggleButton
+        android:id="@+id/scinrecaddpost"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="Science and research"
+        android:textOn="Science and research"
+        app:layout_constraintStart_toEndOf="@+id/gamedevaddpost"
+        app:layout_constraintTop_toBottomOf="@+id/entrepreneurshipaddpost" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
