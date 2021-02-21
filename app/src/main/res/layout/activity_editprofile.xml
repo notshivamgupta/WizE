@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Addposts">
-
-
+    tools:context=".Editprofile">
     <ImageView
         android:id="@+id/backfromeditprofile"
         android:layout_width="wrap_content"
@@ -180,6 +178,4 @@
         android:background="@drawable/editinterestbtn"
         app:layout_constraintStart_toStartOf="@+id/recyclerView3"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView3" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

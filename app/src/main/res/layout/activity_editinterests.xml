@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".editinterests">
+    <ImageView
+        android:id="@+id/backfromeditinterest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_outline___icon_only"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/editinterestpage"
+        android:layout_width="217dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="Edit Interest"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editinterestpage" />
+
+    <TextView
+        android:id="@+id/tagss"
+        android:layout_width="100dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Tags"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/backfromeditinterest"
+        app:layout_constraintTop_toTopOf="@+id/imageView9" />
+<ToggleButton
+        android:id="@+id/appdevei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="App development"
+        android:textOn="App development"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tagss" />
+
+    <ToggleButton
+        android:id="@+id/webdev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textOff="Web development"
+        android:textAllCaps="false"
+        android:textOn="Web development"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toEndOf="@+id/appdevei"
+        app:layout_constraintTop_toBottomOf="@+id/tagss" />
+
+    <ToggleButton
+        android:id="@+id/oop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="Object oriented programing"
+        android:textOn="Object oriented programing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appdevei" />
+
+    <ToggleButton
+        android:id="@+id/ml_ai"
+        android:layout_width="wrap_content"
+        android:textAllCaps="false"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textOff="Ml/AI"
+        android:textOn="Ml/AI"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toEndOf="@+id/oop"
+        app:layout_constraintTop_toBottomOf="@+id/webdev" />
+
+    <ToggleButton
+        android:id="@+id/Grpdgn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="Graphic design"
+        android:textOn="Graphic design"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ml_ai" />
+
+    <ToggleButton
+        android:id="@+id/digmar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textOff="Digital marketing"
+        android:textOn="Digital marketing"
+        app:layout_constraintStart_toEndOf="@+id/Grpdgn"
+        app:layout_constraintTop_toBottomOf="@+id/ml_ai" />
+
+    <ToggleButton
+        android:id="@+id/phot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="Photography"
+        android:textOn="Photography"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Grpdgn" />
+
+    <ToggleButton
+        android:id="@+id/fin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textOff="Finance"
+        android:textOn="Finance"
+        app:layout_constraintStart_toEndOf="@+id/phot"
+        app:layout_constraintTop_toBottomOf="@+id/digmar" />
+
+    <ToggleButton
+        android:id="@+id/cybsec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textOff="Cyber security"
+        android:textOn="Cyber security"
+        app:layout_constraintStart_toEndOf="@+id/fin"
+        app:layout_constraintTop_toBottomOf="@+id/digmar" />
+
+    <ToggleButton
+        android:id="@+id/comskills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="Communication skills"
+        android:textOn="Communication skills"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phot" />
+
+    <ToggleButton
+        android:id="@+id/entrepreneurship"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textOff="Entrepreneurship"
+        android:textOn="Entrepreneurship"
+        app:layout_constraintStart_toEndOf="@+id/comskills"
+        app:layout_constraintTop_toBottomOf="@+id/cybsec" />
+
+    <ToggleButton
+        android:id="@+id/gamedev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="3d and Game development"
+        android:textOn="3d and Game development"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comskills" />
+
+    <ToggleButton
+        android:id="@+id/scinrec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/correcttogbtn"
+        android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
+        android:textOff="Science and research"
+        android:textOn="Science and research"
+        app:layout_constraintStart_toEndOf="@+id/gamedev"
+        app:layout_constraintTop_toBottomOf="@+id/entrepreneurship" />
+
+    <Button
+        android:id="@+id/donebtn"
+        android:layout_width="330dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/allbtnback"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Done >"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="21dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

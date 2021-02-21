@@ -65,7 +65,7 @@
             app:trimExpandedText="Read More"
             app:trimCollapsedText="Read More"
             app:trimMode="trimModeLength"
-            app:trimLength="10"
+            app:trimLength="100"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView22" />
@@ -83,7 +83,7 @@
             app:strokeColor="@color/black"
             app:strokeWidth="2dp" />
 
-        <ToggleButton
+        <ImageView
             android:id="@+id/toggleButton2"
             android:layout_width="28dp"
             android:layout_height="26dp"

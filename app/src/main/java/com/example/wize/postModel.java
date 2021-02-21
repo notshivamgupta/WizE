@@ -1,18 +1,19 @@
 package com.example.wize;
 
 public class postModel {
-    String Full_Name,type,timeStamp,textPost,image;
+    String Full_Name,type,timeStamp,textPost,image,key;
     Long nComments,nLikes;
 
     public postModel() {
     }
 
-    public postModel(String full_Name, String type, String timeStamp, String textPost, String image, Long nComments, Long nLikes) {
+    public postModel(String full_Name, String type, String timeStamp, String textPost, String image, String key, Long nComments, Long nLikes) {
         Full_Name = full_Name;
         this.type = type;
         this.timeStamp = timeStamp;
         this.textPost = textPost;
         this.image = image;
+        this.key = key;
         this.nComments = nComments;
         this.nLikes = nLikes;
     }
@@ -55,6 +56,14 @@ public class postModel {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public Long getnComments() {

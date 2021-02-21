@@ -21,7 +21,7 @@
         android:textCursorDrawable="@drawable/cursor"
         android:scrollbars="vertical"
         android:textSize="21dp"
-        android:maxLength="250"
+        android:maxLength="500"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
@@ -100,7 +100,7 @@
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
         android:fontFamily="@font/montserrat"
-        android:text="Max 250 characters"
+        android:text="Max 500 characters"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textforpost" />

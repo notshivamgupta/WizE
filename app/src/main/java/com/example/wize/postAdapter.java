@@ -5,27 +5,48 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.borjabravo.readmoretextview.ReadMoreTextView;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
 
-public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.postHolder> {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.postHolder> {
+    String user= FirebaseAuth.getInstance().getCurrentUser().getUid();
+    String id;
+    String nm;
+    String key;
+    Long a;
     public postAdapter(@NonNull FirestoreRecyclerOptions<postModel> options) {
         super(options);
     }
 
     @Override
     protected void onBindViewHolder(@NonNull postHolder holder, int position, @NonNull postModel model) {
-     holder.name.setText(model.Full_Name);
+
+        key=model.key;
+      holder.name.setText(model.Full_Name);
+      a=model.nLikes;
      holder.text.setText(model.textPost);
      holder.like.setText(model.nLikes.toString());
      holder.comment.setText(model.nComments.toString());
@@ -33,6 +54,7 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
        Picasso.get().load(postUri).into(holder.img);
        if (model.type.equals("Text Post"))
        {
+           holder.text.setTrimLength(200);
            holder.img.setVisibility(View.GONE);
        }
         String wordMonth = null;
@@ -81,20 +103,38 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
         String time = convertDate(postTime,"hh:mm:ss");
         String display = wordMonth +"  " + date + ",  " + time +"  "+convertDate(postTime,"a");
          holder.time.setText(display);
-         holder.lik.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 if (holder.lik.isChecked())
-                 {
-                     holder.lik.setButtonDrawable(R.drawable.ic_vector__5_);
-                 }
-                 else
-                 {
-                     holder.lik.setButtonDrawable(R.drawable.ic_vector__6_);
 
-                 }
-             }
-         });
+        final List<LikeModel> list = new ArrayList<>();
+        FirebaseFirestore.getInstance().collection("Posts").document(key).collection("Likes").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                list.clear();
+
+                for(QueryDocumentSnapshot snap: value){
+                    list.add(new LikeModel(snap.getString("likerId").trim()));
+                    if(snap.getString("likerId").trim().equals(user)){
+                        holder.lik.setImageResource(R.drawable.ic_vector__5_);
+                    }
+                }
+
+                holder.lik.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        int flag = 0;
+                        for(LikeModel likerId: list){
+                            if(likerId.getLikerId().equals(user)){
+                                removeLike(holder,model);
+                                flag = 1;
+                            }
+                        }
+                        if(flag == 0){
+                            addLike(holder,model);
+                        }
+                    }
+                });
+            }
+        });
+        holder.lik.setImageResource(R.drawable.ic_vector__6_);
     }
 
     @NonNull
@@ -109,7 +149,7 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
         TextView name,like,comment,time;
         ShapeableImageView img;
         ReadMoreTextView text;
-        ToggleButton lik;
+        ImageView lik;
         public postHolder(@NonNull View itemView) {
             super(itemView);
            name=itemView.findViewById(R.id.textView21);
@@ -120,9 +160,51 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
             img=itemView.findViewById(R.id.imageViewaddpst);
             lik=itemView.findViewById(R.id.toggleButton2);
 
+
         }
     }
     public String convertDate(String dateInMilliseconds,String dateFormat) {
         return DateFormat.format(dateFormat, Long.parseLong(dateInMilliseconds)).toString();
+    }
+    private void removeLike(postHolder holder,postModel postModel) {
+        FirebaseFirestore.getInstance().collection("Posts").document(key).collection("Likes")
+                .document(user).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+                Map<String,Object> ad=new HashMap<>();
+                ad.put("nLikes",a-1);
+                FirebaseFirestore.getInstance().collection("Posts").document(key).update(ad);
+                holder.lik.setImageResource(R.drawable.ic_vector__6_);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+    }
+    private void addLike(postHolder holder,postModel postModel) {
+        Map<String, Object> pp = new HashMap<>();
+        pp.put("likerId", user);
+        FirebaseFirestore.getInstance().collection("Posts")
+                .document(key)
+                .collection("Likes")
+                .document(user)
+                .set(pp).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                holder.lik.setImageResource(R.drawable.ic_vector__5_);
+                Map<String,Object> add=new HashMap<>();
+                add.put("nLikes",a+1);
+                FirebaseFirestore.getInstance().collection("Posts").document(key).update(add);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+
     }
 }
