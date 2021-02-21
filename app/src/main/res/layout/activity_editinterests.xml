@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".editinterests">
+
     <ImageView
         android:id="@+id/backfromeditinterest"
         android:layout_width="wrap_content"
@@ -45,15 +46,18 @@
     <TextView
         android:id="@+id/tagss"
         android:layout_width="100dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="48dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="76dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Tags"
         android:textColor="@color/black"
-        android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="@+id/backfromeditinterest"
-        app:layout_constraintTop_toTopOf="@+id/imageView9" />
-<ToggleButton
+        android:textSize="34dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editinterestpage" />
+
+    <ToggleButton
         android:id="@+id/appdevei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,14 +73,14 @@
         app:layout_constraintTop_toBottomOf="@+id/tagss" />
 
     <ToggleButton
-        android:id="@+id/webdev"
+        android:id="@+id/webdevei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@drawable/correcttogbtn"
         android:paddingHorizontal="10dp"
-        android:textOff="Web development"
         android:textAllCaps="false"
+        android:textOff="Web development"
         android:textOn="Web development"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.056"
@@ -84,7 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tagss" />
 
     <ToggleButton
-        android:id="@+id/oop"
+        android:id="@+id/oopei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -99,23 +103,23 @@
         app:layout_constraintTop_toBottomOf="@+id/appdevei" />
 
     <ToggleButton
-        android:id="@+id/ml_ai"
+        android:id="@+id/ml_aiei"
         android:layout_width="wrap_content"
-        android:textAllCaps="false"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/correcttogbtn"
         android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
         android:textOff="Ml/AI"
         android:textOn="Ml/AI"
         app:layout_constraintHorizontal_bias="0.107"
-        app:layout_constraintStart_toEndOf="@+id/oop"
-        app:layout_constraintTop_toBottomOf="@+id/webdev" />
+        app:layout_constraintStart_toEndOf="@+id/oopei"
+        app:layout_constraintTop_toBottomOf="@+id/webdevei" />
 
     <ToggleButton
-        android:id="@+id/Grpdgn"
+        android:id="@+id/Grpdgnei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -127,25 +131,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ml_ai" />
+        app:layout_constraintTop_toBottomOf="@+id/ml_aiei" />
 
     <ToggleButton
-        android:id="@+id/digmar"
+        android:id="@+id/digmarei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
-        android:textAllCaps="false"
         android:layout_marginTop="10dp"
         android:background="@drawable/correcttogbtn"
         android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
         android:textOff="Digital marketing"
         android:textOn="Digital marketing"
-        app:layout_constraintStart_toEndOf="@+id/Grpdgn"
-        app:layout_constraintTop_toBottomOf="@+id/ml_ai" />
+        app:layout_constraintStart_toEndOf="@+id/Grpdgnei"
+        app:layout_constraintTop_toBottomOf="@+id/ml_aiei" />
 
     <ToggleButton
-        android:id="@+id/phot"
+        android:id="@+id/photei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -157,40 +161,40 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Grpdgn" />
+        app:layout_constraintTop_toBottomOf="@+id/Grpdgnei" />
 
     <ToggleButton
-        android:id="@+id/fin"
+        android:id="@+id/finei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/correcttogbtn"
         android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
         android:textOff="Finance"
         android:textOn="Finance"
-        app:layout_constraintStart_toEndOf="@+id/phot"
-        app:layout_constraintTop_toBottomOf="@+id/digmar" />
+        app:layout_constraintStart_toEndOf="@+id/photei"
+        app:layout_constraintTop_toBottomOf="@+id/digmarei" />
 
     <ToggleButton
-        android:id="@+id/cybsec"
+        android:id="@+id/cybsecei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="10dp"
-        android:textAllCaps="false"
         android:background="@drawable/correcttogbtn"
         android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
         android:textOff="Cyber security"
         android:textOn="Cyber security"
-        app:layout_constraintStart_toEndOf="@+id/fin"
-        app:layout_constraintTop_toBottomOf="@+id/digmar" />
+        app:layout_constraintStart_toEndOf="@+id/finei"
+        app:layout_constraintTop_toBottomOf="@+id/digmarei" />
 
     <ToggleButton
-        android:id="@+id/comskills"
+        android:id="@+id/comskillsei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -202,25 +206,25 @@
         android:textOff="Communication skills"
         android:textOn="Communication skills"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phot" />
+        app:layout_constraintTop_toBottomOf="@+id/photei" />
 
     <ToggleButton
-        android:id="@+id/entrepreneurship"
+        android:id="@+id/entrepreneurshipei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
-        android:textAllCaps="false"
         android:layout_marginTop="10dp"
         android:background="@drawable/correcttogbtn"
         android:paddingHorizontal="10dp"
+        android:textAllCaps="false"
         android:textOff="Entrepreneurship"
         android:textOn="Entrepreneurship"
-        app:layout_constraintStart_toEndOf="@+id/comskills"
-        app:layout_constraintTop_toBottomOf="@+id/cybsec" />
+        app:layout_constraintStart_toEndOf="@+id/comskillsei"
+        app:layout_constraintTop_toBottomOf="@+id/cybsecei" />
 
     <ToggleButton
-        android:id="@+id/gamedev"
+        android:id="@+id/gamedevei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -232,10 +236,10 @@
         android:textOff="3d and Game development"
         android:textOn="3d and Game development"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comskills" />
+        app:layout_constraintTop_toBottomOf="@+id/comskillsei" />
 
     <ToggleButton
-        android:id="@+id/scinrec"
+        android:id="@+id/scinrecei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -246,8 +250,8 @@
         android:textAllCaps="false"
         android:textOff="Science and research"
         android:textOn="Science and research"
-        app:layout_constraintStart_toEndOf="@+id/gamedev"
-        app:layout_constraintTop_toBottomOf="@+id/entrepreneurship" />
+        app:layout_constraintStart_toEndOf="@+id/gamedevei"
+        app:layout_constraintTop_toBottomOf="@+id/entrepreneurshipei" />
 
     <Button
         android:id="@+id/donebtn"
