@@ -323,6 +323,8 @@ List<String> intrests;
                     }
                 });
                 if (ok==true) {
+                    startActivity(new Intent(Intrests_Page.this, HomeActivity.class));
+                    finish();
                     String userId;
                     mAuth = FirebaseAuth.getInstance();
                     userId = mAuth.getCurrentUser().getUid();
@@ -335,8 +337,6 @@ List<String> intrests;
                         public void onSuccess(Void aVoid) {
                             String TAG = "Tag";
                             Log.d(TAG, "On Success: Interests added for" + userId);
-                            startActivity(new Intent(Intrests_Page.this, HomeActivity.class));
-                            finish();
                         }
                     });
                 }

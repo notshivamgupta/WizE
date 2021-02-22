@@ -41,8 +41,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/comments" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclercomment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textforcomment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="0.0" />
+
     <EditText
-        android:id="@+id/textforpost"
+        android:id="@+id/textforcomment"
         android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -50,23 +64,26 @@
         android:fontFamily="@font/montserrat"
         android:gravity="top|left"
         android:hint="Type your message"
-        android:inputType="textMultiLine"
-        android:padding="15dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:paddingRight="45dp"
+        android:paddingBottom="15dp"
         android:scrollbars="vertical"
         android:textCursorDrawable="@drawable/cursor"
         android:textSize="21dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.609"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView15"
+        android:id="@+id/sendcomment"
         android:layout_width="34dp"
         android:layout_height="34dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="12dp"
         android:background="@drawable/sendbutton"
-        app:layout_constraintBottom_toBottomOf="@+id/textforpost"
-        app:layout_constraintEnd_toEndOf="@+id/textforpost" />
+        app:layout_constraintBottom_toBottomOf="@+id/textforcomment"
+        app:layout_constraintEnd_toEndOf="@+id/textforcomment"
+        app:layout_constraintTop_toTopOf="@+id/textforcomment" />
 </androidx.constraintlayout.widget.ConstraintLayout>

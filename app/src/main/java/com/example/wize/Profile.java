@@ -1,6 +1,7 @@
 package com.example.wize;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -28,9 +30,14 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 import java.util.Map;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Profile extends Fragment {
 
@@ -50,6 +57,9 @@ public class Profile extends Fragment {
    Button cancellogout,dologout;
    TextView goodbye;
    String bye;
+   String names;
+   String usernames;
+   CircleImageView img;
     public Profile() {
 
     }
@@ -68,6 +78,7 @@ public class Profile extends Fragment {
         groups=view.findViewById(R.id.textView13);
         friends=view.findViewById(R.id.textView15);
         rview=view.findViewById(R.id.recyclerView);
+        img=view.findViewById(R.id.circleImageView2);
         firebaseAuth= FirebaseAuth.getInstance();
         fStore= FirebaseFirestore.getInstance();
         userId=firebaseAuth.getCurrentUser().getUid();
@@ -77,7 +88,14 @@ public class Profile extends Fragment {
                 .requestEmail()
                 .build();
         googleSignInClient= GoogleSignIn.getClient(getActivity(),gso);
-
+        StorageReference storageReference= FirebaseStorage.getInstance().getReference();
+        StorageReference profoleRef=storageReference.child("ProfileImg").child(userId);
+        profoleRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(img);
+            }
+        });
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,8 +123,8 @@ public class Profile extends Fragment {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                String names=value.getString("Full_Name");
-                String usernames=value.getString("UserName");
+               names=value.getString("Full_Name");
+                usernames=value.getString("UserName");
                 long friend= value.getLong("Friends");
                 long post= value.getLong("Posts");
                 long group= value.getLong("Groups");
@@ -173,7 +191,9 @@ public class Profile extends Fragment {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(),Editprofile.class));
+                Intent intent=new Intent(getActivity(),Editprofile.class);
+                intent.putExtra("fullName",names);
+                startActivity(intent);
             }
         });
         return view;

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Editprofile">
+
     <ImageView
         android:id="@+id/backfromeditprofile"
         android:layout_width="wrap_content"
@@ -42,17 +43,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
-    <ImageView
+
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileimage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="34dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/defuserimg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19"
-        app:srcCompat="@drawable/defuserimg" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <ImageView
         android:id="@+id/editprofileimage"
@@ -60,7 +61,7 @@
         android:layout_height="35dp"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/editprofilebtn"
         app:layout_constraintStart_toEndOf="@+id/profileimage"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
@@ -69,14 +70,15 @@
         android:id="@+id/profilename"
         android:layout_width="80dp"
         android:layout_height="34dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Name"
+
         android:textColor="@color/black"
         android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="@+id/backfromeditprofile"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileimage" />
 
     <EditText
@@ -87,85 +89,56 @@
         android:background="@drawable/allinputsignin"
         android:fontFamily="@font/montserrat"
         android:hint="Original Full Name"
-        android:padding="15dp"
+        android:paddingLeft="20dp"
         android:textCursorDrawable="@drawable/cursor"
         android:textSize="21dp"
-        app:layout_constraintStart_toStartOf="@+id/profilename"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilename" />
 
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="125dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="Username"
-        android:textColor="@color/black"
-        android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="@+id/editfullname"
-        app:layout_constraintTop_toBottomOf="@+id/editfullname" />
 
-    <EditText
-        android:id="@+id/editusername"
-        android:layout_width="360dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/allinputsignin"
-        android:fontFamily="@font/montserrat"
-        android:hint="Original Username"
-        android:padding="15dp"
-        android:textCursorDrawable="@drawable/cursor"
-        android:textSize="21dp"
-        app:layout_constraintStart_toStartOf="@+id/username"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
 
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="175dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:fontFamily="@font/montserrat"
-        android:text="Username should be unique"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editusername" />
 
     <TextView
         android:id="@+id/myinterest"
         android:layout_width="145dp"
         android:layout_height="34dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="My Interest"
+
         android:textColor="@color/black"
         android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="@+id/editusername"
-        app:layout_constraintTop_toBottomOf="@+id/editusername" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editfullname" />
 
     <Button
-        android:id="@+id/proceedbtn"
+        android:id="@+id/updateprofbtn"
         android:layout_width="330dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="44dp"
         android:background="@drawable/allbtnback"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Proceed >"
+        android:text="Update Profile >"
         android:textAllCaps="false"
         android:textColor="#fff"
         android:textSize="21dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editinterestbtn" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView3"
-        android:layout_width="wrap_content"
-        android:layout_height="65dp"
-        app:layout_constraintStart_toStartOf="@+id/myinterest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myinterest">
 
     </androidx.recyclerview.widget.RecyclerView>
@@ -174,8 +147,11 @@
         android:id="@+id/editinterestbtn"
         android:layout_width="181dp"
         android:layout_height="34dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+
+        android:layout_marginTop="32dp"
         android:background="@drawable/editinterestbtn"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView3"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

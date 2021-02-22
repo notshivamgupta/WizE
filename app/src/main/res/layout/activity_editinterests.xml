@@ -45,13 +45,14 @@
 
     <TextView
         android:id="@+id/tagss"
-        android:layout_width="100dp"
-        android:layout_height="44dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Tags"
         android:textColor="@color/black"
         android:textSize="34dp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toStartOf="parent"
@@ -257,15 +258,16 @@
         android:id="@+id/donebtn"
         android:layout_width="330dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="44dp"
         android:background="@drawable/allbtnback"
         android:fontFamily="@font/montserrat_bold"
         android:text="Done >"
         android:textAllCaps="false"
         android:textColor="#fff"
         android:textSize="21dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gamedevei" />
 </androidx.constraintlayout.widget.ConstraintLayout>

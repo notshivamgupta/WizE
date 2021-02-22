@@ -112,6 +112,7 @@ tools:context=".Profile">
             app:layout_constraintTop_toTopOf="@+id/recyclerView2" />
 
         <TextView
+            android:id="@+id/goeditinterfromhome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
@@ -131,7 +132,7 @@ tools:context=".Profile">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
-        android:layout_marginBottom="70dp"
+        android:paddingBottom="210dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

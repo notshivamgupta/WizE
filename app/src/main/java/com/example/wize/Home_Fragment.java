@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,6 +30,7 @@ public class Home_Fragment extends Fragment {
     AddHomeTagsAdapter addHomeTagsAdapter;
     RecyclerView post;
     postAdapter adapter;
+    TextView edinter;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     public Home_Fragment() {
     }
@@ -41,7 +43,15 @@ public class Home_Fragment extends Fragment {
         rv=view.findViewById(R.id.recyclerView2);
         post=view.findViewById(R.id.recyclerpost);
         mAuth =  FirebaseAuth.getInstance();
-
+       edinter=view.findViewById(R.id.goeditinterfromhome);
+       edinter.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent intent=new Intent(getActivity(),editinterests.class);
+               intent.putExtra("from","home");
+               startActivity(intent);
+           }
+       });
         addpost.setOnClickListener(new View.OnClickListener()
         {@Override
         public void onClick(View view) {
@@ -57,6 +67,7 @@ public class Home_Fragment extends Fragment {
                 .setQuery(query, postModel.class)
                 .build();
         post.setLayoutManager(new LinearLayoutManager(getContext()));
+        post.setItemAnimator(null);
          adapter=new postAdapter(options);
           post.setAdapter(adapter);
 

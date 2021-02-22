@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -56,6 +57,8 @@ public class Addposts extends AppCompatActivity {
     Long currentTime;
     String fullName;
     Long npst;
+    StorageReference proRef;
+    String profilePic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -344,7 +347,6 @@ public class Addposts extends AppCompatActivity {
             }
         });
 
-
         addpost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -366,11 +368,10 @@ public class Addposts extends AppCompatActivity {
                     data.put("tags",Tags);
                     data.put("userId",userId);
                     data.put("Full_Name",fullName);
-                    data.put("profileImage","");
                     fStore.collection("Posts").add(data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
-                            Toast.makeText(getApplicationContext(), "Post Uploaded", Toast.LENGTH_SHORT).show();
+                            Snackbar.make(view, "Posting Please wait!....", Snackbar.LENGTH_LONG).show();
 
                         }
                     }).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
@@ -402,18 +403,20 @@ public class Addposts extends AppCompatActivity {
                                 public Object then(@NonNull Task task) throws Exception {
                                     if (!task.isSuccessful()) {
                                         throw task.getException();
+
                                     }
                                     return fileref.getDownloadUrl();
                                 }
                             }).addOnCompleteListener(new OnCompleteListener<Uri>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Uri> task) {
+                                    Snackbar.make(view, "Post uploaded!...", Snackbar.LENGTH_LONG).show();
+
                                     final Uri downloadUri = task.getResult();
                                     String postUri = downloadUri.toString();
                                     Map<String, Object> profile = new HashMap<>();
                                     profile.put("image", postUri);
                                     profile.put("key",id);
-                                    //profile.put("profileUrl", profilePic);
                                     fStore.collection("Posts").document(id)
                                             .update(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
@@ -430,6 +433,7 @@ public class Addposts extends AppCompatActivity {
                                                         public void onComplete(@NonNull Task<DocumentReference> task) {
                                                             if (task.isSuccessful())
                                                             {
+
                                                                 Map<String,Object> noPosts=new HashMap<>();
                                                                         noPosts.put("Posts",npst+1);
                                                                         fStore.collection("Users")
@@ -455,6 +459,7 @@ public class Addposts extends AppCompatActivity {
 
                 else if (Type.equals("Text Post")&& txt!=null )
                 {
+                    Snackbar.make(view, "Post uploaded!...", Snackbar.LENGTH_LONG).show();
                     String id=fStore.collection("Posts").document().getId();
                     Map<String,Object>data=new HashMap<>();
                     data.put("key",id);
@@ -467,7 +472,6 @@ public class Addposts extends AppCompatActivity {
                     data.put("tags",Tags);
                     data.put("userId",userId);
                     data.put("Full_Name",fullName);
-                    data.put("profileImage","");
                     fStore.collection("Posts").document(id).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -482,6 +486,8 @@ public class Addposts extends AppCompatActivity {
                             }
                         }
                     });
+
+
                     Map<String, Object> pp = new HashMap<>();
                     pp.put("likerId", "");
                     fStore.collection("Posts").document(id).collection("Likes").add(pp).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {

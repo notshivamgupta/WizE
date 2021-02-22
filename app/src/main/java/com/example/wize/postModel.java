@@ -1,22 +1,12 @@
 package com.example.wize;
 
 public class postModel {
-    String Full_Name,type,timeStamp,textPost,image,key;
+    String Full_Name,type,timeStamp,textPost,image,key,profileImage,userId;
     Long nComments,nLikes;
 
     public postModel() {
     }
 
-    public postModel(String full_Name, String type, String timeStamp, String textPost, String image, String key, Long nComments, Long nLikes) {
-        Full_Name = full_Name;
-        this.type = type;
-        this.timeStamp = timeStamp;
-        this.textPost = textPost;
-        this.image = image;
-        this.key = key;
-        this.nComments = nComments;
-        this.nLikes = nLikes;
-    }
 
     public String getFull_Name() {
         return Full_Name;
@@ -66,6 +56,22 @@ public class postModel {
         this.key = key;
     }
 
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public Long getnComments() {
         return nComments;
     }
@@ -79,6 +85,19 @@ public class postModel {
     }
 
     public void setnLikes(Long nLikes) {
+        this.nLikes = nLikes;
+    }
+
+    public postModel(String full_Name, String type, String timeStamp, String textPost, String image, String key, String profileImage, String userId, Long nComments, Long nLikes) {
+        Full_Name = full_Name;
+        this.type = type;
+        this.timeStamp = timeStamp;
+        this.textPost = textPost;
+        this.image = image;
+        this.key = key;
+        this.profileImage = profileImage;
+        this.userId = userId;
+        this.nComments = nComments;
         this.nLikes = nLikes;
     }
 }
