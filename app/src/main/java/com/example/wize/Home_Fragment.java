@@ -2,6 +2,7 @@ package com.example.wize;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,6 @@ public class Home_Fragment extends Fragment {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     public Home_Fragment() {
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -61,6 +61,13 @@ public class Home_Fragment extends Fragment {
         rv.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.HORIZONTAL));
         addHomeTagsAdapter=new AddHomeTagsAdapter(list);
         rv.setAdapter(addHomeTagsAdapter);
+       query("all");
+
+        return view;
+    }
+    public void query(String a)
+    {
+        Log.d("Tagadd",a);
         CollectionReference cRef=db.collection("Posts");
         Query query = cRef.orderBy("timeStamp",Query.Direction.DESCENDING);
         FirestoreRecyclerOptions<postModel> options = new FirestoreRecyclerOptions.Builder<postModel>()
@@ -68,10 +75,8 @@ public class Home_Fragment extends Fragment {
                 .build();
         post.setLayoutManager(new LinearLayoutManager(getContext()));
         post.setItemAnimator(null);
-         adapter=new postAdapter(options);
-          post.setAdapter(adapter);
-
-        return view;
+        adapter=new postAdapter(options);
+        post.setAdapter(adapter);
     }
     @Override
     public void onStart() {

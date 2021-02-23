@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
@@ -49,6 +48,7 @@ public class Addposts extends AppCompatActivity {
     ImageView imageSelected;
     Button addpost;
     List<String> Tags;
+    String onetag;
     String Type="Text Post";
     StorageReference sr;
     ImageView back;
@@ -57,6 +57,7 @@ public class Addposts extends AppCompatActivity {
     Long currentTime;
     String fullName;
     Long npst;
+
     StorageReference proRef;
     String profilePic;
     @Override
@@ -115,13 +116,14 @@ public class Addposts extends AppCompatActivity {
         appdev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (appdev.isChecked() && (Tags.size()<2))
+                if (appdev.isChecked() && (Tags.size()<1))
                 {
 
                     appdev.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
 
                     appdev.setTextColor(getResources().getColor(R.color.white));
                     Tags.add("App development");
+                    onetag="App development";
                 }
                 else
                 {
@@ -134,12 +136,13 @@ public class Addposts extends AppCompatActivity {
         webdev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (webdev.isChecked()&& (Tags.size()<2))
+                if (webdev.isChecked()&& (Tags.size()<1))
                 {
                     webdev.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
 
                     webdev.setTextColor(getResources().getColor(R.color.white));
                     Tags.add("Web development");
+                    onetag="Web development";
                 }
                 else
                 {
@@ -152,12 +155,13 @@ public class Addposts extends AppCompatActivity {
         oop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (oop.isChecked()&& (Tags.size()<2))
+                if (oop.isChecked()&& (Tags.size()<1))
                 {
                     oop.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
 
                     oop.setTextColor(getResources().getColor(R.color.white));
                     Tags.add("Object oriented programing");
+                    onetag="Object oriented programing";
                 }
                 else
                 {
@@ -170,12 +174,13 @@ public class Addposts extends AppCompatActivity {
         mlai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mlai.isChecked()&& (Tags.size()<2))
+                if (mlai.isChecked()&& (Tags.size()<1))
                 {
                     mlai.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
 
                     mlai.setTextColor(getResources().getColor(R.color.white));
                     Tags.add("Ml/AI");
+                    onetag="Ml/AI";
                 }
                 else
                 {
@@ -188,12 +193,13 @@ public class Addposts extends AppCompatActivity {
         grapdgn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (grapdgn.isChecked()&& (Tags.size()<2))
+                if (grapdgn.isChecked()&& (Tags.size()<1))
                 {
                     grapdgn.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
 
                     grapdgn.setTextColor(getResources().getColor(R.color.white));
                     Tags.add("Graphic design");
+                    onetag="Graphic design";
                 }
                 else
                 {
@@ -206,12 +212,13 @@ public class Addposts extends AppCompatActivity {
         digmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (digmar.isChecked()&& (Tags.size()<2))
+                if (digmar.isChecked()&& (Tags.size()<1))
                 {
                     digmar.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
 
                     digmar.setTextColor(getResources().getColor(R.color.white));
                     Tags.add("Digital marketing");
+                    onetag="Digital marketing";
                 }
                 else
                 {
@@ -224,12 +231,13 @@ public class Addposts extends AppCompatActivity {
         phot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (phot.isChecked()&& (Tags.size()<2))
+                if (phot.isChecked()&& (Tags.size()<1))
                 {
                     phot.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
 
                     phot.setTextColor(getResources().getColor(R.color.white));
                     Tags.add("Photography");
+                    onetag="Photography";
                 }
                 else
                 {
@@ -242,12 +250,13 @@ public class Addposts extends AppCompatActivity {
         fin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (fin.isChecked()&& (Tags.size()<2))
+                if (fin.isChecked()&& (Tags.size()<1))
                 {
                     fin.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
 
                     fin.setTextColor(getResources().getColor(R.color.white));
                     Tags.add("Finance");
+                    onetag="Finance";
                 }
                 else
                 {
@@ -260,12 +269,13 @@ public class Addposts extends AppCompatActivity {
         cybsec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (cybsec.isChecked()&& (Tags.size()<2))
+                if (cybsec.isChecked()&& (Tags.size()<1))
                 {
                     cybsec.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
 
                     cybsec.setTextColor(getResources().getColor(R.color.white));
                     Tags.add("Cyber security");
+                    onetag="Cyber security";
                 }
                 else
                 {
@@ -278,12 +288,13 @@ public class Addposts extends AppCompatActivity {
         comskill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (comskill.isChecked()&& (Tags.size()<2))
+                if (comskill.isChecked()&& (Tags.size()<1))
                 {
                     comskill.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
 
                     comskill.setTextColor(getResources().getColor(R.color.white));
                     Tags.add("Communication skills");
+                    onetag="Communication skills";
                 }
                 else
                 {
@@ -296,12 +307,13 @@ public class Addposts extends AppCompatActivity {
         entre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (entre.isChecked()&& (Tags.size()<2))
+                if (entre.isChecked()&& (Tags.size()<1))
                 {
                     entre.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
 
                     entre.setTextColor(getResources().getColor(R.color.white));
                     Tags.add("Entrepreneurship");
+                    onetag="Entrepreneurship";
                 }
                 else
                 {
@@ -314,12 +326,13 @@ public class Addposts extends AppCompatActivity {
         gamdev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (gamdev.isChecked()&& (Tags.size()<2))
+                if (gamdev.isChecked()&& (Tags.size()<1))
                 {
                     gamdev.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
 
                     gamdev.setTextColor(getResources().getColor(R.color.white));
                     Tags.add("3d and Game development");
+                    onetag="3d and Game development";
                 }
                 else
                 {
@@ -332,11 +345,12 @@ public class Addposts extends AppCompatActivity {
         scinrec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (scinrec.isChecked()&& (Tags.size()<2))
+                if (scinrec.isChecked()&& (Tags.size()<1))
                 {
                     scinrec.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
                     scinrec.setTextColor(getResources().getColor(R.color.white));
                     Tags.add("Science and research");
+                    onetag="Science and research";
                 }
                 else
                 {
@@ -365,7 +379,7 @@ public class Addposts extends AppCompatActivity {
                     data.put("type",Type);
                     data.put("nComments",0);
                     data.put("nLikes",0);
-                    data.put("tags",Tags);
+                    data.put("tags",onetag);
                     data.put("userId",userId);
                     data.put("Full_Name",fullName);
                     fStore.collection("Posts").add(data).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -435,13 +449,13 @@ public class Addposts extends AppCompatActivity {
                                                             {
 
                                                                 Map<String,Object> noPosts=new HashMap<>();
-                                                                        noPosts.put("Posts",npst+1);
-                                                                        fStore.collection("Users")
-                                                                                .document(userId).update(noPosts).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                                            @Override
-                                                                            public void onComplete(@NonNull Task<Void> task) {
-                                                                            }
-                                                                        });
+                                                                noPosts.put("Posts",npst+1);
+                                                                fStore.collection("Users")
+                                                                        .document(userId).update(noPosts).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                    @Override
+                                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                                    }
+                                                                });
                                                                 startActivity(new Intent(Addposts.this,HomeActivity.class));
                                                             }
 
@@ -472,21 +486,7 @@ public class Addposts extends AppCompatActivity {
                     data.put("tags",Tags);
                     data.put("userId",userId);
                     data.put("Full_Name",fullName);
-                    fStore.collection("Posts").document(id).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful())
-                            {
-                                startActivity(new Intent(Addposts.this,HomeActivity.class));
-                                finish();
-                            }
-                            else
-                            {
-                                Toast.makeText(Addposts.this, "Error!", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-
+                    fStore.collection("Posts").document(id).set(data);
 
                     Map<String, Object> pp = new HashMap<>();
                     pp.put("likerId", "");

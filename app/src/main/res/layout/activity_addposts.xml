@@ -127,7 +127,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat"
-        android:text="(Select any two)"
+        android:text="(Select any one)"
         android:textSize="14dp"
         app:layout_constraintStart_toEndOf="@+id/textView26"
         app:layout_constraintTop_toBottomOf="@+id/imageViewaddpst" />

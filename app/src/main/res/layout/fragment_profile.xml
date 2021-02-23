@@ -243,7 +243,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Post"
+        android:text="Posts"
         android:textColor="@color/black"
         android:textSize="21dp"
         app:layout_constraintStart_toStartOf="parent"

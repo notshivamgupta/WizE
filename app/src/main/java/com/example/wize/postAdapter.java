@@ -3,6 +3,7 @@ package com.example.wize;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,20 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
     protected void onBindViewHolder(@NonNull postHolder holder, int position, @NonNull postModel model) {
 
       holder.name.setText(model.Full_Name);
+      holder.name.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              if (model.userId.equals(user))
+              {
+                  Log.d("Tags","Own profile");
+              }
+              else {
+                  Intent inten=new Intent(view.getContext(),ViewUsersProfile.class);
+                  inten.putExtra("Uid",model.userId);
+                  view.getContext().startActivity(inten);
+              }
+          }
+      });
      holder.text.setText(model.textPost);
      holder.like.setText(model.nLikes.toString());
      holder.comment.setText(model.nComments.toString());

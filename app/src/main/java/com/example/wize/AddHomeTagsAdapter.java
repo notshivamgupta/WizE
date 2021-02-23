@@ -12,6 +12,7 @@ import java.util.List;
 
 public class AddHomeTagsAdapter extends RecyclerView.Adapter<AddHomeTagsAdapter.AddhomeView> {
     List<String> tags;
+    String tag;
     public AddHomeTagsAdapter(List<String>tags)
     {this.tags=tags;}
     @NonNull
@@ -24,6 +25,15 @@ public class AddHomeTagsAdapter extends RecyclerView.Adapter<AddHomeTagsAdapter.
     @Override
     public void onBindViewHolder(@NonNull AddhomeView holder, int position) {
      holder.ab.setText(tags.get(position));
+     holder.ab.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+             tag=tags.get(position);
+             Home_Fragment hm=new Home_Fragment();
+             hm.query(tag);
+         }
+     });
+
     }
 
     @Override
