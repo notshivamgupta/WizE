@@ -69,7 +69,7 @@ public class Home_Fragment extends Fragment {
     {
         Log.d("Tagadd",a);
         CollectionReference cRef=db.collection("Posts");
-        Query query = cRef.orderBy("timeStamp",Query.Direction.DESCENDING);
+        Query query = cRef.orderBy("timeStamp",Query.Direction.DESCENDING).whereEqualTo("tags",a);
         FirestoreRecyclerOptions<postModel> options = new FirestoreRecyclerOptions.Builder<postModel>()
                 .setQuery(query, postModel.class)
                 .build();
