@@ -1,7 +1,7 @@
 package com.example.wize;
 
 public class commentModel {
-    String Comment,cName;
+    String Comment,cName,userCommented;
 
     public String getComment() {
         return Comment;
@@ -19,9 +19,18 @@ public class commentModel {
         this.cName = cName;
     }
 
-    public commentModel(String comment, String cName) {
+    public String getUserCommented() {
+        return userCommented;
+    }
+
+    public void setUserCommented(String userCommented) {
+        this.userCommented = userCommented;
+    }
+
+    public commentModel(String comment, String cName, String userCommented) {
         Comment = comment;
         this.cName = cName;
+        this.userCommented = userCommented;
     }
 
     public commentModel() {

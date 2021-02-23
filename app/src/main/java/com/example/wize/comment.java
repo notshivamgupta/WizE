@@ -1,18 +1,23 @@
 package com.example.wize;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
@@ -22,6 +27,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,12 +38,12 @@ RecyclerView recomment;
 EditText comment;
 String key;
 String user;
-Long ncomments;
 commentAdapter adapter;
 FirebaseFirestore fStore;
  String name;
     String cm=null;
     Long currentTime;
+    int count;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,23 +52,22 @@ FirebaseFirestore fStore;
         recomment=findViewById(R.id.recyclercomment);
         send=findViewById(R.id.sendcomment);
         comment=findViewById(R.id.textforcomment);
-        currentTime = System.currentTimeMillis();
+
         recomment.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recomment.setItemAnimator(null);
          user= FirebaseAuth.getInstance().getCurrentUser().getUid();
         Intent intent=getIntent();
         key=intent.getStringExtra("postid");
-        ncomments=intent.getLongExtra("com",0);
+
         fStore= FirebaseFirestore.getInstance();
         CollectionReference cRef=fStore.collection("Posts").document(key).collection("Comments");
-        Query query = cRef.orderBy("time",Query.Direction.DESCENDING);
+        Query query = cRef.orderBy("time",Query.Direction.ASCENDING);
         FirestoreRecyclerOptions<commentModel> options = new FirestoreRecyclerOptions.Builder<commentModel>()
                 .setQuery(query, commentModel.class)
                 .build();
         adapter=new commentAdapter(options);
         recomment.setAdapter(adapter);
-
-
+        comment.setText(null, EditText.BufferType.EDITABLE);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +75,9 @@ FirebaseFirestore fStore;
                 finish();
             }
         });
+
         send.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
 
@@ -85,30 +92,43 @@ FirebaseFirestore fStore;
                     documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
                         @Override
                         public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                            currentTime = System.currentTimeMillis();
                             name=value.getString("Full_Name");
                             Map<String, Object> cp = new HashMap<>();
                             cp.put("userCommented", user);
                             cp.put("Comment",cm);
                             cp.put("cName",name);
-                            cp.put("time",currentTime.toString());
+                            cp.put("time",currentTime);
                             FirebaseFirestore.getInstance().collection("Posts")
                                     .document(key)
                                     .collection("Comments")
-                                    .add(cp).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    Map<String,Object> add=new HashMap<>();
-                                    add.put("nComments",ncomments+1);
-                                    FirebaseFirestore.getInstance().collection("Posts").document(key).update(add);
-                                }
-                            });
+                                    .add(cp);
                         }
                     });
-                    comment.setText(null);
                 }
+
+                FirebaseFirestore.getInstance().collection("Posts").document(key).collection("Comments").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            count = 0;
+                            for (DocumentSnapshot document : task.getResult()) {
+                                count++;
+                            }
+                        } else {
+                            Log.d("Tagsd", "Error getting documents: ", task.getException());
+                        }
+                        Map<String,Object> add=new HashMap<>();
+                        add.put("nComments",count-1);
+                        FirebaseFirestore.getInstance().collection("Posts").document(key).update(add);
+                    }
+                });
+                comment.setText(null);
+
             }
 
         });
+
     }
     @Override
     public void onStart() {

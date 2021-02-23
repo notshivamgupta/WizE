@@ -71,7 +71,6 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
            public void onClick(View view) {
                Intent intent=new Intent(view.getContext(),comment.class);
                intent.putExtra("postid",model.key);
-               intent.putExtra("com",model.nComments);
                intent.putExtra("nm",model.Full_Name);
                view.getContext().startActivity(intent);
            }

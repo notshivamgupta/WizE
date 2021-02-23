@@ -1,6 +1,5 @@
 package com.example.wize;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,19 +19,17 @@ public class commentAdapter extends FirestoreRecyclerAdapter<commentModel,commen
         super(options);
     }
 
-    @SuppressLint("ResourceAsColor")
     @Override
     protected void onBindViewHolder(@NonNull commentAdapter.commentHolder holder, int position, @NonNull commentModel model) {
         holder.cent.setText(model.Comment);
-
         holder.name.setText(model.cName);
-        if (model.cName==userid)
+        if (model.userCommented.equals(userid))
         {
-            holder.cent.setBackgroundColor(R.color.colorPrimary);
+            holder.cent.setBackgroundResource(R.drawable.owncomment);
         }
         else
         {
-            holder.cent.setBackgroundColor(R.color.colorPrimaryDark);
+            holder.cent.setBackgroundResource(R.drawable.othercomment);
         }
     }
 
