@@ -43,6 +43,7 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
     String nm;
     public postAdapter(@NonNull FirestoreRecyclerOptions<postModel> options) {
         super(options);
+
     }
 
     @Override
