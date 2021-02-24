@@ -84,7 +84,8 @@ public class Home_Fragment extends Fragment {
                         .build();
                 adapter.updateOptions(option);
                 post.setAdapter(adapter);
-
+                changecolour();
+                all.setBackgroundResource(R.drawable.hometagselected);
             }
         });
         appdev.setOnClickListener(new View.OnClickListener() {
@@ -210,6 +211,7 @@ public class Home_Fragment extends Fragment {
         entre.setBackgroundResource(R.drawable.backhometagsrec);
         gamdev.setBackgroundResource(R.drawable.backhometagsrec);
         scinrec.setBackgroundResource(R.drawable.backhometagsrec);
+        all.setBackgroundResource(R.drawable.backhometagsrec);
     }
     public void setposts(String a)
     {
