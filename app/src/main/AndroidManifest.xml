@@ -13,10 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".addChat"></activity>
-        <activity android:name=".comment" />
+        <activity android:name=".comment"></activity>
         <activity android:name=".editinterests" />
         <activity android:name=".Editprofile" />
+        <activity android:name=".showposts"></activity>
         <activity android:name=".ViewUsersProfile" />
         <activity android:name=".Addposts" />
         <activity android:name=".Intrests_Page" />

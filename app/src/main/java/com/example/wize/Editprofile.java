@@ -37,14 +37,14 @@ import java.util.List;
 import java.util.Map;
 
 public class Editprofile extends AppCompatActivity {
-ImageView back,addprofimg,profimg;
-Button editinter;
-RecyclerView rc;
-Uri uri;
-TagsAdapter adapter;
-StorageReference str;
-EditText name;
-Button update;
+    ImageView back,addprofimg,profimg;
+    Button editinter;
+    RecyclerView rc;
+    Uri uri;
+    TagsAdapter adapter;
+    StorageReference str;
+    EditText name;
+    Button update;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -138,14 +138,14 @@ Button update;
                             FirebaseFirestore.getInstance().collection("Users").document(userId).update(profileimg).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                       startActivity(new Intent(Editprofile.this,HomeActivity.class));
-                                       finish();
+                                    startActivity(new Intent(Editprofile.this,HomeActivity.class));
+                                    finish();
                                 }
                             });
-                }
+                        }
                     });
-                 }
-                 else
+                }
+                else
                 {
                     Snackbar.make(view, "Updating....", Snackbar.LENGTH_LONG).show();
                     Map<String, Object> namefb = new HashMap<>();

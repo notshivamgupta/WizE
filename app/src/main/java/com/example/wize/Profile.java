@@ -1,23 +1,29 @@
 package com.example.wize;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -25,15 +31,18 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -60,7 +69,12 @@ public class Profile extends Fragment {
    String names;
    String usernames;
    CircleImageView img;
-    public Profile() {
+    RecyclerView postView;
+    ImageAdapter adapter2;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    Query query;
+    List<Integer> imagess=new ArrayList<>();
+   public Profile() {
 
     }
 
@@ -79,6 +93,7 @@ public class Profile extends Fragment {
         friends=view.findViewById(R.id.textView15);
         rview=view.findViewById(R.id.recyclerView);
         img=view.findViewById(R.id.circleImageView2);
+        postView=view.findViewById(R.id.profilepost);
         firebaseAuth= FirebaseAuth.getInstance();
         fStore= FirebaseFirestore.getInstance();
         userId=firebaseAuth.getCurrentUser().getUid();
@@ -96,6 +111,28 @@ public class Profile extends Fragment {
                 Picasso.get().load(uri).into(img);
             }
         });
+
+        DocumentReference documentReference2= fStore.collection("Posts").document(userId);
+        documentReference2.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                postView.setLayoutManager(new GridLayoutManager(getContext(),2));
+                postView.setNestedScrollingEnabled(false);
+                CollectionReference cRef=db.collection("Posts");
+                query = cRef.orderBy("timeStamp", Query.Direction.DESCENDING).whereEqualTo("userId",userId).whereEqualTo("type","Image Post");
+                FirestoreRecyclerOptions<postModel> optionz = new FirestoreRecyclerOptions.Builder<postModel>()
+                        .setQuery(query, postModel.class)
+                        .build();
+                adapter2= new ImageAdapter(optionz);
+                postView.setAdapter(adapter2);
+                adapter2.startListening();
+
+            }
+        });
+
+
+
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -197,5 +234,20 @@ public class Profile extends Fragment {
             }
         });
         return view;
+
+
+
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter2.stopListening();
+    }
+
 }

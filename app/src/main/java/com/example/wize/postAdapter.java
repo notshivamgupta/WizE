@@ -68,6 +68,10 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
       {
           holder.com.setImageResource(R.drawable.ic_vector__7_);
       }
+      else
+      {
+          holder.com.setImageResource(R.drawable.ic_vector__3_);
+      }
      holder.text.setText(model.textPost);
      holder.like.setText(model.nLikes.toString());
      holder.comment.setText(model.nComments.toString());
