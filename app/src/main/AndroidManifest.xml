@@ -19,6 +19,7 @@
         <activity android:name=".showposts"></activity>
         <activity android:name=".ViewUsersProfile" />
         <activity android:name=".Addposts" />
+        <activity android:name=".addChat"/>
         <activity android:name=".Intrests_Page" />
         <activity android:name=".introduction" />
         <activity android:name=".SplashActivity">

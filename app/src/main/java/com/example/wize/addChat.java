@@ -28,6 +28,7 @@ SearchView search;
         rview=findViewById(R.id.recycleraddchat);
         cut=findViewById(R.id.cutsearch);
         rview.setLayoutManager(new LinearLayoutManager(this));
+        rview.setItemAnimator(null);
         cut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
