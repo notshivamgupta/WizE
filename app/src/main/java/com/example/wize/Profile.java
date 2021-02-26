@@ -118,6 +118,7 @@ public class Profile extends Fragment {
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
 
                 postView.setLayoutManager(new GridLayoutManager(getContext(),2));
+
                 postView.setNestedScrollingEnabled(false);
                 CollectionReference cRef=db.collection("Posts");
                 query = cRef.orderBy("timeStamp", Query.Direction.DESCENDING).whereEqualTo("userId",userId).whereEqualTo("type","Image Post");
@@ -247,7 +248,6 @@ public class Profile extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        adapter2.stopListening();
     }
 
 }

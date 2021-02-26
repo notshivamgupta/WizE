@@ -38,6 +38,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -54,6 +56,7 @@ public class showposts extends AppCompatActivity {
     TextView name, like, comment, timez;
     EditText sendcomment;
     ShapeableImageView img;
+    CircleImageView dp;
     ReadMoreTextView text;
     commentAdapter adapter;
     RecyclerView recomment;
@@ -82,6 +85,7 @@ public class showposts extends AppCompatActivity {
         timez = findViewById(R.id.timetext);
         img = findViewById(R.id.imageViewaddpst);
         lik = findViewById(R.id.toggleButton2);
+        dp=findViewById(R.id.circleImageView3s);
         pimg = findViewById(R.id.circleImageView3);
         com = findViewById(R.id.commentimg);
         recomment=findViewById(R.id.cmrecycler2);
@@ -102,6 +106,7 @@ public class showposts extends AppCompatActivity {
         String textPost = intent.getStringExtra("textPost");
         String timeStamp = intent.getStringExtra("timeStamp");
         String type = intent.getStringExtra("type");
+        String poster=intent.getStringExtra("userId");
 
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -112,6 +117,15 @@ public class showposts extends AppCompatActivity {
         like.setText(Likes);
         Uri postUri = Uri.parse(image);
         Picasso.get().load(postUri).into(img);
+
+        StorageReference storageReference= FirebaseStorage.getInstance().getReference();
+        StorageReference profoleRef=storageReference.child("ProfileImg").child(poster);
+        profoleRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(dp);
+            }
+        });
 
         FirebaseFirestore.getInstance().collection("Posts").document(key).collection("Comments").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -124,7 +138,7 @@ public class showposts extends AppCompatActivity {
                 } else {
                     Log.d("Tagsd", "Error getting documents: ", task.getException());
                 }
-                comment.setText(Integer.toString(c-1));
+                comment.setText("Comment ("+Integer.toString(c-1)+")");
 
             }
         });
@@ -306,8 +320,21 @@ public class showposts extends AppCompatActivity {
                         Map<String,Object> add=new HashMap<>();
                         add.put("nComments",count-1);
                         FirebaseFirestore.getInstance().collection("Posts").document(key).update(add);
-                        comment.setText(Integer.toString(count));
+                        FirebaseFirestore.getInstance().collection("Posts").document(key).collection("Comments").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    c = 0;
+                                    for (DocumentSnapshot document : task.getResult()) {
+                                        c++;
+                                    }
+                                } else {
+                                    Log.d("Tagsd", "Error getting documents: ", task.getException());
+                                }
+                                comment.setText("Comment ("+Integer.toString(c-1)+")");
 
+                            }
+                        });
                     }
                 });
                 sendcomment.setText(null);

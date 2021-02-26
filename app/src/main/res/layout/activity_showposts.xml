@@ -58,11 +58,11 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/circleImageView3"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginLeft="40dp"
+                    android:id="@+id/circleImageView3s"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="20dp"
                     android:src="@drawable/defuserimg"
                     app:layout_constraintStart_toStartOf="parent"
@@ -72,32 +72,32 @@
                     android:id="@+id/textView21"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/montserrat"
                     android:text="Katrisa Feona"
                     android:textColor="@color/black"
                     android:textSize="20dp"
-                    app:layout_constraintStart_toEndOf="@+id/circleImageView3"
+                    app:layout_constraintStart_toEndOf="@+id/circleImageView3s"
                     app:layout_constraintTop_toTopOf="@+id/imageView9" />
 
                 <TextView
                     android:id="@+id/timetext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
                     android:fontFamily="@font/montserrat_bold"
                     android:text="3.59 pm, 12 March"
                     android:textColor="#474A57"
                     android:textSize="11dp"
-                    app:layout_constraintStart_toEndOf="@+id/circleImageView3"
+                    app:layout_constraintStart_toEndOf="@+id/circleImageView3s"
                     app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
                 <com.borjabravo.readmoretextview.ReadMoreTextView
                     android:id="@+id/textView23"
-                    android:layout_width="327dp"
+                    android:layout_width="337dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:fontFamily="@font/montserrat"
@@ -114,8 +114,8 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imageViewaddpst"
-                    android:layout_width="300dp"
-                    android:layout_height="300dp"
+                    android:layout_width="350dp"
+                    android:layout_height="350dp"
                     android:layout_marginTop="16dp"
                     android:padding="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -171,8 +171,8 @@
                     android:id="@+id/commentimg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginLeft="48dp"
                     android:layout_marginTop="20dp"
                     android:src="@drawable/ic_vector__3_"
                     app:layout_constraintStart_toStartOf="parent"
@@ -192,27 +192,26 @@
                     app:layout_constraintStart_toEndOf="@+id/commentimg"
                     app:layout_constraintTop_toBottomOf="@+id/toggleButton2" />
 
-                <ImageView
-                    android:id="@+id/imageblack"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="13dp"
-                    android:background="@color/black"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/comment" />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/imageblack"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="13dp"
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/comment" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/cmrecycler2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:paddingLeft="20dp"
-                android:paddingBottom="60dp"
+                android:paddingLeft="48dp"
+                android:paddingBottom="70dp"
                 app:layout_constraintStart_toStartOf="@+id/commentimg"
                 app:layout_constraintTop_toBottomOf="@+id/imageblack">
 
@@ -228,7 +227,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/allinputsignin"
         android:fontFamily="@font/montserrat"
-        android:hint="Type your message"
+        android:hint="Type your comment"
         android:inputType="textMultiLine|textPersonName"
         android:paddingLeft="15dp"
         android:paddingTop="15dp"
