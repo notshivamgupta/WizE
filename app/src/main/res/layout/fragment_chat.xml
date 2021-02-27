@@ -28,6 +28,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
+        android:visibility="gone"
         android:src="@drawable/ic_whh_friends"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,6 +47,7 @@
         android:id="@+id/gotoaddchat"
         android:layout_width="330dp"
         android:layout_height="56dp"
+        android:visibility="gone"
         android:layout_marginTop="20dp"
         android:background="@drawable/allinputsignin"
         android:fontFamily="@font/montserrat"
@@ -65,11 +67,13 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:src="@drawable/ic_search"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/gotoaddchat"
         app:layout_constraintEnd_toEndOf="@+id/gotoaddchat"
         app:layout_constraintTop_toTopOf="@+id/gotoaddchat" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/showallchat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

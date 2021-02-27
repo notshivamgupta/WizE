@@ -71,8 +71,6 @@
             android:id="@+id/buttonuser"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginLeft="28dp"
             android:background="@drawable/allinputsignin"
             android:drawableLeft="@drawable/ic_message_circle"
             android:drawablePadding="10dp"
@@ -80,7 +78,9 @@
             android:padding="10dp"
             android:text="Send Message"
             android:textAllCaps="false"
+            android:visibility="gone"
             android:textSize="21dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView12user" />
 
@@ -89,6 +89,7 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:src="@drawable/acccir"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.461"
             app:layout_constraintStart_toEndOf="@+id/buttonuser"
@@ -105,7 +106,7 @@
             android:textColor="@color/white"
             android:textSize="27dp"
             app:layout_constraintEnd_toStartOf="@+id/textView15user"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.154"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonuser" />
 
@@ -118,9 +119,9 @@
             android:textColor="@color/white"
             android:textSize="27dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.545"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toEndOf="@+id/textView15user"
-            app:layout_constraintTop_toBottomOf="@+id/imageView7user" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonuser" />
 
         <TextView
             android:id="@+id/textView15user"
@@ -128,6 +129,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_bold"
             android:text="5"
+            android:visibility="gone"
             android:textColor="@color/white"
             android:textSize="27dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -142,6 +144,7 @@
             android:textColor="@color/white"
             android:textSize="15dp"
             app:layout_constraintEnd_toStartOf="@+id/textView16user"
+            app:layout_constraintHorizontal_bias="0.544"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView14user" />
 
@@ -153,6 +156,7 @@
             android:text="Friends"
             android:textColor="@color/white"
             android:textSize="15dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView15user" />
@@ -201,6 +205,7 @@
         android:layout_marginLeft="30dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Posts"
+        android:visibility="gone"
         android:textColor="@color/black"
         android:textSize="21dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -211,6 +216,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18user" />

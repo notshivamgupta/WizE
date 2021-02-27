@@ -13,13 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".comment"></activity>
+        <activity android:name=".sendChat"></activity>
+        <activity android:name=".comment" />
         <activity android:name=".editinterests" />
         <activity android:name=".Editprofile" />
-        <activity android:name=".showposts"></activity>
+        <activity android:name=".showposts" />
         <activity android:name=".ViewUsersProfile" />
         <activity android:name=".Addposts" />
-        <activity android:name=".addChat"/>
+        <activity android:name=".addChat" />
         <activity android:name=".Intrests_Page" />
         <activity android:name=".introduction" />
         <activity android:name=".SplashActivity">

@@ -57,8 +57,7 @@ dependencies {
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
     implementation 'com.github.yalantis:ucrop:2.2.6'
     implementation 'com.squareup.picasso:picasso:2.71828'
-
-   
+    compile 'com.github.ceryle:SegmentedButton:v2.0.2'
     implementation 'com.firebaseui:firebase-ui-firestore:6.3.0'
     compile 'com.borjabravo:readmoretextview:2.1.0'
 }

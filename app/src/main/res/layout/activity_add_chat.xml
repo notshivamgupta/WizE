@@ -6,40 +6,103 @@
     android:layout_height="match_parent"
     tools:context=".addChat">
 
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text=" Search By :"
+        android:textColor="#5A5A5A"
+        android:textSize="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <co.ceryle.segmentedbutton.SegmentedButtonGroup
+        android:id="@+id/segmentedButtonGroup2"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/allinputsignin"
+        android:dividerPadding="10dp"
+        android:padding="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView28"
+        app:sbg_animateSelector="fastOutSlowIn"
+        app:sbg_animateSelectorDuration="500"
+        app:sbg_radius="16dp"
+        app:sbg_ripple="true"
+        app:sbg_selectorColor="#00C6AE">
+
+        <co.ceryle.segmentedbutton.SegmentedButton
+            android:id="@+id/btnname"
+            android:layout_width="147dp"
+            android:layout_height="46dp"
+            app:sb_text="Name"
+            app:sb_textSize="22dp"
+            app:sb_textColor_onSelection="@color/white"
+            app:sb_textStyle="bold"
+            app:sb_textColor="@color/black"
+            />
+
+        <co.ceryle.segmentedbutton.SegmentedButton
+            android:layout_width="148dp"
+            android:layout_height="46dp"
+            android:id="@+id/btnusername"
+            app:sb_text="Username"
+            app:sb_textColor_onSelection="@color/white"
+            app:sb_textSize="22dp"
+            app:sb_textStyle="bold"
+            app:sb_textColor="@color/black"/>
+    </co.ceryle.segmentedbutton.SegmentedButtonGroup>
 
     <SearchView
         android:id="@+id/search"
-        android:layout_width="330dp"
+        android:layout_width="370dp"
         android:layout_height="56dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/allinputsignin"
         android:fontFamily="@font/montserrat"
         android:gravity="center_vertical"
         android:iconifiedByDefault="false"
         android:paddingLeft="15dp"
-        android:queryHint="Search By Name or Username"
+        android:queryHint="Search..."
         android:textSize="21dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/segmentedButtonGroup2" />
 
     <ImageView
         android:id="@+id/cutsearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
-        android:src="@drawable/ic_cross"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
-        app:layout_constraintStart_toEndOf="@+id/search"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_outline___icon_only"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:fontFamily="@font/montserrat"
+        android:text="( Case Sensitive )"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleraddchat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search" />
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
 </androidx.constraintlayout.widget.ConstraintLayout>
