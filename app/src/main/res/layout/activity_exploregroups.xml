@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".exploregroups">
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="313dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/exploregrouphead"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="App Development"
+
+
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="320dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logoforsplash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="12dp"
+        android:src="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+
+    <Button
+        android:id="@+id/joinbtn"
+        android:layout_width="230dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/allbtnback"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="JOIN  >"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+
+        android:textSize="21dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gamedevei" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_outline___icon_only"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:text="Mobile application development is the process of creating apps that run on any mobile platform: Android and iOS. With everything you need right at your fingertips, you can track inventory or make instant updates from your phone.
+An app developer develops applications for use on phones and tablets that utilize the android/IOS operating system – everything from interactive games to media players, to electronic book readers and global navigation software.
+Java and XML are the two main programming languages used in Android App development. Knowledge and mastery over these programming languages are, therefore, prerequisites to developing an Android app.
+To develop iOS apps, you need a Mac computer running the latest version of Xcode. Xcode is Apple’s IDE (Integrated Development Environment) for both Mac and iOS apps. Xcode is the graphical interface you’ll use to write iOS apps.
+"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

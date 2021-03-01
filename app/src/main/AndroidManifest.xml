@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".sendChat"></activity>
+        <activity android:name=".exploregroups"></activity>
+        <activity android:name=".groupchat" />
+        <activity android:name=".sendChat" />
         <activity android:name=".comment" />
         <activity android:name=".editinterests" />
         <activity android:name=".Editprofile" />

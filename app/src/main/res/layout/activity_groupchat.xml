@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".groupchat">
+
+    <TextView
+        android:id="@+id/groupnamechat"
+        android:layout_width="302dp"
+        android:layout_height="59dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/textback"
+
+        android:elevation="4dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Groups"
+        android:textColor="#000000"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backsendchat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_outline___icon_only"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black"
+        android:layout_marginTop="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/groupnamechat" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/textforcomment"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/allinputsignin"
+            android:fontFamily="@font/montserrat"
+            android:hint="Type your comment"
+            android:inputType="textMultiLine|textPersonName"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:paddingRight="45dp"
+            android:paddingBottom="17dp"
+            android:scrollbars="vertical"
+            android:textCursorDrawable="@drawable/cursor"
+            android:textSize="21dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/sendgroupchat"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/sendbutton"
+            app:layout_constraintBottom_toBottomOf="@+id/textforcomment"
+            app:layout_constraintEnd_toEndOf="@+id/textforcomment"
+            app:layout_constraintTop_toTopOf="@+id/textforcomment" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/uimgsendchat"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/defuserimg"
+        app:layout_constraintBottom_toBottomOf="@+id/groupnamechat"
+        app:layout_constraintStart_toStartOf="@+id/groupnamechat"
+        app:layout_constraintTop_toTopOf="@+id/groupnamechat" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclergroupchat"
+        android:layout_width="match_parent"
+        android:layout_height="597dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
