@@ -1,18 +1,14 @@
 package com.example.wize;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
@@ -104,6 +100,7 @@ public class Profile extends Fragment {
                 .build();
         googleSignInClient= GoogleSignIn.getClient(getActivity(),gso);
         StorageReference storageReference= FirebaseStorage.getInstance().getReference();
+
         StorageReference profoleRef=storageReference.child("ProfileImg").child(userId);
         profoleRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override

@@ -39,8 +39,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.postHolder> {
     String user= FirebaseAuth.getInstance().getCurrentUser().getUid();
-    String id;
-    String nm;
     public postAdapter(@NonNull FirestoreRecyclerOptions<postModel> options) {
         super(options);
 

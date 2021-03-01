@@ -373,7 +373,7 @@ public class Addposts extends AppCompatActivity {
 
                     Map<String,Object>data=new HashMap<>();
                     data.put("key","");
-                    data.put("timeStamp",currentTime.toString());
+                    data.put("timeStamp","");
                     data.put("textPost",txt);
                     data.put("image","");
                     data.put("type",Type);
@@ -431,6 +431,7 @@ public class Addposts extends AppCompatActivity {
                                     Map<String, Object> profile = new HashMap<>();
                                     profile.put("image", postUri);
                                     profile.put("key",id);
+                                    profile.put("timeStamp",currentTime.toString());
                                     fStore.collection("Posts").document(id)
                                             .update(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override

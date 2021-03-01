@@ -1,13 +1,5 @@
 package com.example.wize;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -18,7 +10,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.borjabravo.readmoretextview.ReadMoreTextView;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -59,6 +57,7 @@ public class showposts extends AppCompatActivity {
     CircleImageView dp;
     ReadMoreTextView text;
     commentAdapter adapter;
+    ImageView back;
     RecyclerView recomment;
     ImageView lik, com;
     int commentcheck;
@@ -91,7 +90,14 @@ public class showposts extends AppCompatActivity {
         recomment=findViewById(R.id.cmrecycler2);
         send=findViewById(R.id.sendcommentprofile);
         sendcomment=findViewById(R.id.textforcomment);
-
+        back=findViewById(R.id.backfrompostview);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(showposts.this,HomeActivity.class));
+                finish();
+            }
+        });
 
         recomment.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recomment.setItemAnimator(null);
@@ -110,7 +116,6 @@ public class showposts extends AppCompatActivity {
 
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-//        nComments=" Comments ("+nComments+")";
 
         name.setText(Full_Name);
         text.setText(textPost);
@@ -142,7 +147,14 @@ public class showposts extends AppCompatActivity {
 
             }
         });
-
+        if (c-1>0)
+        {
+         com.setImageResource(R.drawable.ic_vector__7_);
+        }
+        else
+        {
+         com.setImageResource(R.drawable.ic_vector__3_);
+        }
 
 
         String wordMonth = null;
@@ -343,16 +355,6 @@ public class showposts extends AppCompatActivity {
 
         });
 
-//        comment.setText(null, EditText.BufferType.EDITABLE);
-//        commentcheck=Integer.parseInt(nComments);
-//        if (commentcheck>0)
-//        {
-//            com.setImageResource(R.drawable.ic_vector__7_);
-//        }
-//        else
-//        {
-//            com.setImageResource(R.drawable.ic_vector__3_);
-//        }
 
 
     }

@@ -63,7 +63,7 @@ public class Home_Fragment extends Fragment {
             }
         });
         CollectionReference cRef=db.collection("Posts");
-        query = cRef.orderBy("timeStamp",Query.Direction.DESCENDING);
+        query = cRef.orderBy("timeStamp",Query.Direction.DESCENDING).whereNotEqualTo("timeStamp","");
         FirestoreRecyclerOptions<postModel> options = new FirestoreRecyclerOptions.Builder<postModel>()
                 .setQuery(query, postModel.class)
                 .build();
@@ -73,12 +73,15 @@ public class Home_Fragment extends Fragment {
         {@Override
         public void onClick(View view) {
             startActivity(new Intent(getActivity(),Addposts.class));
+
+            getActivity().finish();
+
         }
         });
         all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                query = cRef.orderBy("timeStamp",Query.Direction.DESCENDING);
+                query = cRef.orderBy("timeStamp",Query.Direction.DESCENDING).whereNotEqualTo("timeStamp","");
                 FirestoreRecyclerOptions<postModel> option = new FirestoreRecyclerOptions.Builder<postModel>()
                         .setQuery(query, postModel.class)
                         .build();
@@ -216,7 +219,7 @@ public class Home_Fragment extends Fragment {
     public void setposts(String a)
     {
         CollectionReference cRef=db.collection("Posts");
-        query = cRef.orderBy("timeStamp",Query.Direction.DESCENDING).whereEqualTo("tags",a);
+        query = cRef.orderBy("timeStamp",Query.Direction.DESCENDING).whereEqualTo("tags",a).whereNotEqualTo("timeStamp","");
         FirestoreRecyclerOptions<postModel> option = new FirestoreRecyclerOptions.Builder<postModel>()
                 .setQuery(query, postModel.class)
                 .build();

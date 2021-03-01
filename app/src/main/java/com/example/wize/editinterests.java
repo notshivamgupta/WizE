@@ -126,13 +126,13 @@ ImageView back;
                     mlai.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
 
                     mlai.setTextColor(getResources().getColor(R.color.white));
-                    intr.add("Ml/AI");
+                    intr.add("ML/AI");
                 }
                 else
                 {
                     mlai.setBackgroundDrawable(getResources().getDrawable(R.drawable.correcttogbtn));
                     mlai.setTextColor(getResources().getColor(R.color.black));
-                    intr.remove("Ml/AI");
+                    intr.remove("ML/AI");
                 }
             }
         });

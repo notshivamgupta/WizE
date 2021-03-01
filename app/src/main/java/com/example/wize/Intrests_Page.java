@@ -116,13 +116,13 @@ List<String> intrests;
                     mlai.setBackgroundDrawable(getResources().getDrawable(R.drawable.togbtnback));
 
                     mlai.setTextColor(getResources().getColor(R.color.white));
-                    intrests.add("Ml/AI");
+                    intrests.add("ML/AI");
                 }
                 else
                 {
                     mlai.setBackgroundDrawable(getResources().getDrawable(R.drawable.correcttogbtn));
                     mlai.setTextColor(getResources().getColor(R.color.black));
-                    intrests.remove("Ml/AI");
+                    intrests.remove("ML/AI");
                 }
             }
         });

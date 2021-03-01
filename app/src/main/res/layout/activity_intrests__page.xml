@@ -150,8 +150,8 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/correcttogbtn"
         android:paddingHorizontal="10dp"
-        android:textOff="Ml/AI"
-        android:textOn="Ml/AI"
+        android:textOff="ML/AI"
+        android:textOn="ML/AI"
         app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toEndOf="@+id/oop"
         app:layout_constraintTop_toBottomOf="@+id/webdev" />
