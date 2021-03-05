@@ -3,5 +3,7 @@
     <style name="RoundedSquare">
         <item name="cornerSize">10%</item>
     </style>
-
+    <style name="RoundedRectangle">
+        <item name="cornerSize">10%</item>
+    </style>
 </resources>

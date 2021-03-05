@@ -72,9 +72,20 @@
         app:layout_constraintEnd_toEndOf="@+id/gotoaddchat"
         app:layout_constraintTop_toTopOf="@+id/gotoaddchat" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:src="@drawable/commingsoon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/showallchat"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

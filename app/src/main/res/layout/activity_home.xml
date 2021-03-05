@@ -36,9 +36,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:bt_colorActive="#CA7257"
+            app:bt_colorActive="#0DCCF5"
             app:bt_colorInactive="#000000"
-            app:bt_icon="@drawable/ic_baseline_home_24"
+            app:bt_icon="@drawable/ic_fluent_home_48_filled"
             app:bt_title="Home" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
@@ -46,9 +46,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:bt_colorActive="#9B71D6"
+            app:bt_colorActive="#00C6AE"
             app:bt_colorInactive="#000000"
-            app:bt_icon="@drawable/ic_baseline_emoji_people_24"
+            app:bt_icon="@drawable/ic_fa_solid_layer_group"
             app:bt_title="Explore" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
@@ -56,9 +56,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:bt_colorActive="#FBB650"
+            app:bt_colorActive="#FFBD12"
             app:bt_colorInactive="#000000"
-            app:bt_icon="@drawable/ic_baseline_chat_24"
+            app:bt_icon="@drawable/ic_dashicons_format_chat"
             app:bt_title="Chat" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
@@ -66,9 +66,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:bt_colorActive="#458A48"
+            app:bt_colorActive="#2952E2"
             app:bt_colorInactive="#000000"
-            app:bt_icon="@drawable/ic_baseline_account_circle_24"
+            app:bt_icon="@drawable/ic_whh_profile"
             app:bt_title="Profile" />
     </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
 

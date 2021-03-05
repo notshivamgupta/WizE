@@ -340,7 +340,7 @@ tools:context=".Profile">
         android:layout_marginEnd="52dp"
         android:layout_marginRight="52dp"
         android:layout_marginBottom="92dp"
-        android:background="@drawable/addpost"
+        android:background="@drawable/ic_frame_1819"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
