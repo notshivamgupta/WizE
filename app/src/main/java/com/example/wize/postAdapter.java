@@ -41,6 +41,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.postHolder> {
     String user= FirebaseAuth.getInstance().getCurrentUser().getUid();
+    Button dodelete, cancelfordelete;
+    ImageView cutdelete;
+    private android.app.AlertDialog.Builder builder;
+    private android.app.AlertDialog dialog;
     public postAdapter(@NonNull FirestoreRecyclerOptions<postModel> options) {
         super(options);
 
@@ -86,7 +90,40 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
               }
           }
       });
-      if (model.nComments>0)
+      holder.delete.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              builder = new android.app.AlertDialog.Builder(getContext());
+              final View vie = getLayoutInflater().inflate(R.layout.delete_popup,null);
+              builder.setView(vie);
+              dialog = builder.create();
+              dialog.show();
+              cutdelete=(ImageView)dialog.findViewById(R.id.cutdelete);
+              cancelfordelete=(Button)dialog.findViewById(R.id.cancelfordelete);
+              dodelete=(Button)dialog.findViewById(R.id.dodelete);
+              cutdelete.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View view) {
+                      dialog.dismiss();
+                  }
+              });
+              cancelfordelete.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View view) {
+                      dialog.dismiss();
+                  }
+              });
+              dodelete.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View view) {
+
+                  }
+              });
+          }
+
+      });
+
+        if (model.nComments>0)
       {
           holder.com.setImageResource(R.drawable.ic_vector__7_);
       }
