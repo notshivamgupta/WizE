@@ -23,17 +23,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:visibility="gone"
-        android:src="@drawable/ic_whh_friends"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
         android:id="@+id/imageView9"
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -47,7 +36,7 @@
         android:id="@+id/gotoaddchat"
         android:layout_width="330dp"
         android:layout_height="56dp"
-        android:visibility="gone"
+
         android:layout_marginTop="20dp"
         android:background="@drawable/allinputsignin"
         android:fontFamily="@font/montserrat"
@@ -67,12 +56,12 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:src="@drawable/ic_search"
-        android:visibility="gone"
+
         app:layout_constraintBottom_toBottomOf="@+id/gotoaddchat"
         app:layout_constraintEnd_toEndOf="@+id/gotoaddchat"
         app:layout_constraintTop_toTopOf="@+id/gotoaddchat" />
 
-    <ImageView
+   <!-- <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
@@ -80,12 +69,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/showallchat"
         android:layout_width="match_parent"
-        android:visibility="gone"
+
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

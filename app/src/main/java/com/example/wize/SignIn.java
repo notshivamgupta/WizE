@@ -1,13 +1,6 @@
 package com.example.wize;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -19,11 +12,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -41,10 +37,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.shobhitpuri.custombuttons.GoogleSignInButton;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -297,6 +289,20 @@ public class SignIn extends AppCompatActivity {
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
+                                    DocumentReference documentReference= FirebaseFirestore.getInstance().collection("Users").document(userId);
+                                    documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                                            String img=value.getString("profileImage");
+                                            if (img==null)
+                                            {
+                                                Map<String, Object> user = new HashMap<>();
+                                                user.put("profileImage","https://firebasestorage.googleapis.com/v0/b/wize-675b2.appspot.com/o/ProfileImg%2Fdefuserimg.png?alt=media&token=96541f8e-0ace-4497-9249-516b4877795b");
+                                                documentReference.update(user);
+                                            }
+                                        }
+                                    });
+
                                     Log.d(TAG, "On Success: User Profile Created for" + userId);
                                 }
                             });

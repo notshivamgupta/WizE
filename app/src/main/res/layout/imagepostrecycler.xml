@@ -40,6 +40,43 @@
             app:layout_constraintStart_toEndOf="@+id/circleImageView3"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ToggleButton
+            android:id="@+id/imageViewreportpointer"
+            android:layout_width="5dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="25dp"
+           android:background="@drawable/ic_vector__8_"
+            android:textOff=""
+            android:textOn=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonReport"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/allbtnback"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Report"
+            android:textColor="#ffff"
+            android:layout_marginTop="3dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonDelete" />
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/allbtnback"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Delete"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffff"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewreportpointer" />
+
         <TextView
             android:id="@+id/textView22"
             android:layout_width="wrap_content"

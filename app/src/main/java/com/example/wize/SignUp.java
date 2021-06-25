@@ -125,7 +125,7 @@ public class SignUp extends AppCompatActivity {
                                 user.put("Posts",0);
                                 user.put("Friends",0);
                                 user.put("Groups",0);
-                                user.put("profileImage","");
+                                user.put("profileImage","https://firebasestorage.googleapis.com/v0/b/wize-675b2.appspot.com/o/ProfileImg%2Fdefuserimg.png?alt=media&token=96541f8e-0ace-4497-9249-516b4877795b");
                                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {

@@ -25,7 +25,7 @@ public class AddChatAdapter extends FirestoreRecyclerAdapter<AddChatModel,AddCha
 
     @Override
     protected void onBindViewHolder(@NonNull final AddChatHolder holder, int position, @NonNull final AddChatModel model) {
-       holder.name.setText(model.Full_Name);
+        holder.name.setText(model.Full_Name);
         holder.uname.setText("@"+model.UserName);
         Uri profuri = Uri.parse(model.getProfileImage());
         Picasso.get().load(profuri).into(holder.img);

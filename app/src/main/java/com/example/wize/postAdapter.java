@@ -7,8 +7,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -48,6 +50,28 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
     protected void onBindViewHolder(@NonNull postHolder holder, int position, @NonNull postModel model) {
 
       holder.name.setText(model.Full_Name);
+      holder.threedots.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              if (holder.threedots.isChecked())
+              {
+                  if (model.userId.equals(user))
+                  {
+                      holder.delete.setVisibility(View.VISIBLE);
+                  }
+                  else
+                  {
+                      holder.report.setVisibility(View.VISIBLE);
+                  }
+              }
+             else
+              {
+                  holder.delete.setVisibility(View.GONE);
+                  holder.report.setVisibility(View.GONE);
+              }
+          }
+      });
+
       holder.name.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
@@ -228,6 +252,8 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
         ReadMoreTextView text;
         ImageView lik,com;
         CircleImageView pimg;
+        Button report,delete;
+        ToggleButton threedots;
         public postHolder(@NonNull View itemView) {
             super(itemView);
            name=itemView.findViewById(R.id.textView21);
@@ -239,6 +265,9 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
             lik=itemView.findViewById(R.id.toggleButton2);
             pimg=itemView.findViewById(R.id.circleImageView3);
             com=itemView.findViewById(R.id.commentimg);
+            report=itemView.findViewById(R.id.buttonReport);
+            delete=itemView.findViewById(R.id.buttonDelete);
+            threedots=itemView.findViewById(R.id.imageViewreportpointer);
         }
     }
     public String convertDate(String dateInMilliseconds,String dateFormat) {
