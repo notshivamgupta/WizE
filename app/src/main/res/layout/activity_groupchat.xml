@@ -45,6 +45,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="10dp"
         android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -97,6 +98,7 @@
         android:layout_height="597dp"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
+        android:paddingBottom="5dp"
         android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

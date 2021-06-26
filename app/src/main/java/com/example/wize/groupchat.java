@@ -80,12 +80,12 @@ String Simage;
                     List<Groupsmessagesmodel> messages = new ArrayList<>();
 
                     for (QueryDocumentSnapshot doc : value) {
-                        if ((doc.getString("receiver").equals(userrec) && doc.getString("sender").equals(userId)) || (doc.getString("sender").equals(userrec) && doc.getString("receiver").equals(userId)))
                             messages.add(
                                     new Groupsmessagesmodel(
                                             doc.getString("message"),
                                             doc.getString("receiver"),
-                                            doc.getString("sender")
+                                            doc.getString("sender"),
+                                            doc.getString("Image")
                                     )
                             );
 
