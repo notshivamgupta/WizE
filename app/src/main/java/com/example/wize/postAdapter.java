@@ -1,5 +1,6 @@
 package com.example.wize;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.format.DateFormat;
@@ -41,6 +42,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.postHolder> {
     String user= FirebaseAuth.getInstance().getCurrentUser().getUid();
+    private FirebaseFirestore abcdb = FirebaseFirestore.getInstance();
     Button dodelete, cancelfordelete;
     ImageView cutdelete;
     private android.app.AlertDialog.Builder builder;
@@ -93,8 +95,9 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
       holder.delete.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              builder = new android.app.AlertDialog.Builder(getContext());
-              final View vie = getLayoutInflater().inflate(R.layout.delete_popup,null);
+              builder = new android.app.AlertDialog.Builder(view.getContext());
+              LayoutInflater inflater = (LayoutInflater)view.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+              final View vie =inflater.inflate(R.layout.delete_popup,null);
               builder.setView(vie);
               dialog = builder.create();
               dialog.show();
@@ -116,7 +119,8 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
               dodelete.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View view) {
-
+                     abcdb.collection("Posts").document(model.key).delete();
+                      dialog.dismiss();
                   }
               });
           }

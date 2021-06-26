@@ -21,8 +21,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
-
-
         app:layout_constraintStart_toEndOf="@+id/backfromexploregroups"
         app:layout_constraintTop_toTopOf="parent" />
 

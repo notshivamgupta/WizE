@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".sendChat">
 
+
     <TextView
         android:id="@+id/namesendchat"
         android:layout_width="302dp"
@@ -13,10 +14,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         android:background="@drawable/textback"
-
         android:elevation="4dp"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
@@ -26,20 +24,10 @@
         android:textSize="28dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/backsendchat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/ic_outline___icon_only"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="match_parent"

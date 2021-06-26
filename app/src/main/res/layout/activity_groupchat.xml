@@ -8,13 +8,11 @@
 
     <TextView
         android:id="@+id/groupnamechat"
-        android:layout_width="302dp"
-        android:layout_height="59dp"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         android:background="@drawable/textback"
 
         android:elevation="4dp"
@@ -23,23 +21,13 @@
         android:padding="5dp"
         android:text="Groups"
         android:textColor="#000000"
-        android:textSize="28dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/backsendchat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/ic_outline___icon_only"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="match_parent"
@@ -61,12 +49,12 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <EditText
-            android:id="@+id/textforcomment"
+            android:id="@+id/textforgroupmessage"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:background="@drawable/allinputsignin"
             android:fontFamily="@font/montserrat"
-            android:hint="Type your comment"
+            android:hint="Type your message.."
             android:inputType="textMultiLine|textPersonName"
             android:paddingLeft="15dp"
             android:paddingTop="15dp"
@@ -86,16 +74,18 @@
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/sendbutton"
-            app:layout_constraintBottom_toBottomOf="@+id/textforcomment"
-            app:layout_constraintEnd_toEndOf="@+id/textforcomment"
-            app:layout_constraintTop_toTopOf="@+id/textforcomment" />
+            app:layout_constraintBottom_toBottomOf="@+id/textforgroupmessage"
+            app:layout_constraintEnd_toEndOf="@+id/textforgroupmessage"
+            app:layout_constraintTop_toTopOf="@+id/textforgroupmessage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/uimgsendchat"
-        android:layout_width="40dp"
+        android:layout_width="64dp"
         android:layout_height="40dp"
         android:layout_marginLeft="10dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp"
         android:src="@drawable/defuserimg"
         app:layout_constraintBottom_toBottomOf="@+id/groupnamechat"
         app:layout_constraintStart_toStartOf="@+id/groupnamechat"
