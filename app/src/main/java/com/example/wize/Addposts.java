@@ -379,6 +379,7 @@ public class Addposts extends AppCompatActivity {
                     data.put("type",Type);
                     data.put("nComments",0);
                     data.put("nLikes",0);
+                    data.put("nReports",0);
                     data.put("tags",onetag);
                     data.put("userId",userId);
                     data.put("Full_Name",fullName);

@@ -42,7 +42,7 @@ EditText message;
 Long currentTime;
 GroupSchowChatAdapter adapter;
 RecyclerView recyclerView;
-String Simage;
+String Simage,Sname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,7 +85,8 @@ String Simage;
                                             doc.getString("message"),
                                             doc.getString("receiver"),
                                             doc.getString("sender"),
-                                            doc.getString("Image")
+                                            doc.getString("Image"),
+                                            doc.getString("SenderName")
                                     )
                             );
 
@@ -108,6 +109,7 @@ String Simage;
                     documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
                         @Override
                         public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                            Sname=value.getString("Full_Name");
                             Simage=value.getString("profileImage");
                             currentTime = System.currentTimeMillis();
 
@@ -117,6 +119,7 @@ String Simage;
                             user.put("sender",userId);
                             user.put("time",currentTime);
                             user.put("Image",Simage);
+                            user.put("SenderName",Sname);
                             db.collection("group").document(userrec).collection("chat").add(user);
                         }
                     });

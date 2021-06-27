@@ -40,12 +40,37 @@
         app:layout_constraintTop_toBottomOf="@+id/groupnamechat" />
 
 
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/uimgsendchat"
+        android:layout_width="64dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp"
+        android:src="@drawable/defuserimg"
+        app:layout_constraintBottom_toBottomOf="@+id/groupnamechat"
+        app:layout_constraintStart_toStartOf="@+id/groupnamechat"
+        app:layout_constraintTop_toTopOf="@+id/groupnamechat" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclergroupchat"
+        android:layout_width="match_parent"
+        android:layout_height="597dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:paddingTop="10dp"
+        android:paddingTop="5dp"
         android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -80,29 +105,5 @@
             app:layout_constraintTop_toTopOf="@+id/textforgroupmessage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/uimgsendchat"
-        android:layout_width="64dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="10dp"
-        app:strokeColor="@color/black"
-        app:strokeWidth="2dp"
-        android:src="@drawable/defuserimg"
-        app:layout_constraintBottom_toBottomOf="@+id/groupnamechat"
-        app:layout_constraintStart_toStartOf="@+id/groupnamechat"
-        app:layout_constraintTop_toTopOf="@+id/groupnamechat" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclergroupchat"
-        android:layout_width="match_parent"
-        android:layout_height="597dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="5dp"
-        android:paddingRight="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,6 +34,7 @@ public class exploreAdapter extends FirestoreRecyclerAdapter<exploreModel,explor
                 intent.putExtra("topickey",model.key);
                 intent.putExtra("topicimage",model.image);
                 intent.putExtra("topicinfo",model.info);
+                intent.putExtra("topicusers",model.NoUSers);
                 view.getContext().startActivity(intent);
             }
         });

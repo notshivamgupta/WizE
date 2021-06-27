@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".exploregroups"></activity>
+        <activity android:name=".ShowTopicUSers"></activity>
+        <activity android:name=".exploregroups" />
         <activity android:name=".groupchat" />
         <activity android:name=".sendChat" />
         <activity android:name=".comment" />

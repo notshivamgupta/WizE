@@ -29,6 +29,7 @@
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_marginTop="5dp"
+        android:visibility="gone"
         android:background="@drawable/defuserimg"
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
@@ -38,5 +39,17 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </de.hdodenhof.circleimageview.CircleImageView>
+
+    <TextView
+        android:id="@+id/namegroupchat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:text="Katrisa Feona"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leftgroupchatforchatting"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

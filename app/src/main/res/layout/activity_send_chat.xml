@@ -40,39 +40,6 @@
         app:layout_constraintTop_toBottomOf="@+id/namesendchat" />
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/white"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <EditText
-            android:id="@+id/sendchat"
-            android:layout_width="380dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/allinputsignin"
-            android:hint="Type here"
-            android:paddingLeft="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.483"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/sendmessage"
-            android:layout_width="28dp"
-            android:layout_height="20dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginRight="12dp"
-            android:src="@drawable/sendbutton"
-            app:layout_constraintBottom_toBottomOf="@+id/sendchat"
-            app:layout_constraintEnd_toEndOf="@+id/sendchat"
-            app:layout_constraintTop_toTopOf="@+id/sendchat"
-            app:layout_constraintVertical_bias="0.35"></ImageView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/uimgsendchat"
@@ -95,5 +62,40 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/white"
+        android:paddingTop="5dp"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/sendchat"
+            android:layout_width="380dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/allinputsignin"
+            android:hint="Type here"
+            android:paddingLeft="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.483"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/sendmessage"
+            android:layout_width="28dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/sendbutton"
+            app:layout_constraintBottom_toBottomOf="@+id/sendchat"
+            app:layout_constraintEnd_toEndOf="@+id/sendchat"
+            app:layout_constraintTop_toTopOf="@+id/sendchat"
+            app:layout_constraintVertical_bias="0.35"></ImageView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

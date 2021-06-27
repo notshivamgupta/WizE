@@ -1,13 +1,14 @@
 package com.example.wize;
 
 public class Groupsmessagesmodel {
-    String message, receiver, sender, Image;
+    String message, receiver, sender, Image,SenderName;
 
-    public Groupsmessagesmodel(String message, String receiver, String sender, String image) {
+    public Groupsmessagesmodel(String message, String receiver, String sender, String image, String senderName) {
         this.message = message;
         this.receiver = receiver;
         this.sender = sender;
-        this.Image = image;
+        Image = image;
+        SenderName = senderName;
     }
 
     public String getMessage() {
@@ -39,7 +40,15 @@ public class Groupsmessagesmodel {
     }
 
     public void setImage(String image) {
-        this.Image = image;
+        Image = image;
+    }
+
+    public String getSenderName() {
+        return SenderName;
+    }
+
+    public void setSenderName(String senderName) {
+        SenderName = senderName;
     }
 
     public Groupsmessagesmodel() {

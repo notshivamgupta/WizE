@@ -61,15 +61,17 @@ public class GroupSchowChatAdapter extends RecyclerView.Adapter<GroupSchowChatAd
     }
 
     public class GroupMessageHolder extends RecyclerView.ViewHolder {
-        TextView mes;
+        TextView mes,name;
         CircleImageView image;
         public GroupMessageHolder(@NonNull View itemView) {
             super(itemView);
             mes=itemView.findViewById(R.id.leftgroupchatforchatting);
             image=itemView.findViewById(R.id.groupchatdpgroup);
+            name=itemView.findViewById(R.id.namegroupchat);
         }
         public void bind(Groupsmessagesmodel chat) {
             mes.setText(chat.getMessage());
+            name.setText(chat.getSenderName());
             Uri profuri = Uri.parse(chat.getImage());
             Picasso.get().load(profuri).into(image);
         }

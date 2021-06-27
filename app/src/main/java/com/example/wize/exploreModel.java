@@ -2,13 +2,7 @@ package com.example.wize;
 
 public class exploreModel {
     String key,image,info,name;
-
-    public exploreModel(String key, String image, String info, String name) {
-        this.key = key;
-        this.image = image;
-        this.info = info;
-        this.name = name;
-    }
+    Long  NoUSers;
 
     public String getKey() {
         return key;
@@ -40,6 +34,22 @@ public class exploreModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getNoUSers() {
+        return NoUSers;
+    }
+
+    public void setNoUSers(Long noUSers) {
+        NoUSers = noUSers;
+    }
+
+    public exploreModel(String key, String image, String info, String name, Long noUSers) {
+        this.key = key;
+        this.image = image;
+        this.info = info;
+        this.name = name;
+        NoUSers = noUSers;
     }
 
     public exploreModel() {

@@ -3,14 +3,17 @@ package com.example.wize;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
@@ -43,8 +46,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.postHolder> {
     String user= FirebaseAuth.getInstance().getCurrentUser().getUid();
     private FirebaseFirestore abcdb = FirebaseFirestore.getInstance();
-    Button dodelete, cancelfordelete;
-    ImageView cutdelete;
+    Button dodelete, cancelfordelete,doreport;
+    ImageView cutdelete,cutreport;
+    EditText report;
     private android.app.AlertDialog.Builder builder;
     private android.app.AlertDialog dialog;
     public postAdapter(@NonNull FirestoreRecyclerOptions<postModel> options) {
@@ -92,6 +96,46 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
               }
           }
       });
+
+
+        holder.report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                builder = new android.app.AlertDialog.Builder(view.getContext());
+                LayoutInflater inflater = (LayoutInflater)view.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                final View vie =inflater.inflate(R.layout.report_popup,null);
+                builder.setView(vie);
+                dialog = builder.create();
+                dialog.show();
+                cutreport=(ImageView) dialog.findViewById(R.id.cutreport);
+                doreport=(Button) dialog.findViewById(R.id.doreport);
+                report=(EditText) dialog.findViewById(R.id.reporttext);
+                cutreport.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                doreport.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String mail=report.getText().toString();
+                        if(TextUtils.isEmpty(mail)) {
+                            report.setError("Report Reason is Required");
+                            return;
+                        }
+                        else
+                        {
+                            Toast.makeText(view.getContext(), "Thank you!!.. for reporting the post we will look into the matter....", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                        }
+                    }
+                });
+            }
+        });
+
+
       holder.delete.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
@@ -120,11 +164,11 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
                   @Override
                   public void onClick(View view) {
                      abcdb.collection("Posts").document(model.key).delete();
+                      Toast.makeText(view.getContext(), "You have deleted the post!...", Toast.LENGTH_SHORT).show();
                       dialog.dismiss();
                   }
               });
           }
-
       });
 
         if (model.nComments>0)
