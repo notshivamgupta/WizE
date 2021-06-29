@@ -73,6 +73,7 @@ public class Editprofile extends AppCompatActivity {
             public void onClick(View view) {
                 Intent a=new Intent(Editprofile.this,editinterests.class);
                 a.putExtra("from","editprof");
+                a.putExtra("fullName",nm);
                 startActivity(a);
                 finish();
             }

@@ -49,6 +49,7 @@ ImageView back;
         intr=new ArrayList<>();
         Intent intent=getIntent();
         String a=intent.getStringExtra("from");
+        String nm=intent.getStringExtra("fullName");
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,7 +59,9 @@ ImageView back;
                     finish();
                 }
                 else {
-                    startActivity(new Intent(editinterests.this, Editprofile.class));
+                    Intent intent=new Intent(editinterests.this,Editprofile.class);
+                    intent.putExtra("fullName",nm);
+                    startActivity(intent);
                     finish();
                 }
             }
@@ -318,7 +321,9 @@ ImageView back;
                     finish();
                 }
                 else {
-                    startActivity(new Intent(editinterests.this, Editprofile.class));
+                    Intent intent=new Intent(editinterests.this,Editprofile.class);
+                    intent.putExtra("fullName",nm);
+                    startActivity(intent);
                     finish();
                 }
             }
