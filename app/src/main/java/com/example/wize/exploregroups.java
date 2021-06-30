@@ -40,7 +40,7 @@ ShapeableImageView topicimage;
 TextView topicname,Topicinfo,Users;
     Long currentTime;
     FirebaseFirestore fStore;
-Button join;
+Button join, quiz;
 String currentuser;
 Integer count;
     String Sname,Simage,Suname;
@@ -54,6 +54,7 @@ Integer count;
         Topicinfo=findViewById(R.id.infogroup);
         join=findViewById(R.id.joinbtn);
         Users=findViewById(R.id.textView33);
+        quiz=findViewById(R.id.takeaquiz);
          currentuser= FirebaseAuth.getInstance().getCurrentUser().getUid();
         Intent intent=getIntent();
         name=intent.getStringExtra("topicname");
@@ -62,6 +63,14 @@ Integer count;
         info=intent.getStringExtra("topicinfo");
         Nousers=intent.getLongExtra("topicusers",0);
         topicname.setText(name);
+        quiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent quizz=new Intent(exploregroups.this, quiz.class);
+                quizz.putExtra("topicname",name);
+                startActivity(quizz);
+            }
+        });
         topicname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
