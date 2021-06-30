@@ -99,13 +99,28 @@
                 android:text="JOIN  >"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-
                 android:textSize="21dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.493"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+            <Button
+                android:id="@+id/takeaquiz"
+                android:layout_width="230dp"
+                android:layout_height="56dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/allbtnback"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Take a quiz  >"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="21dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/joinbtn" />
         </LinearLayout>
     </ScrollView>
 
