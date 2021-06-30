@@ -3,6 +3,7 @@
     package="com.example.wize">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".quiz"></activity>
+        <activity android:name=".result"></activity>
+        <activity android:name=".quiz" />
         <activity android:name=".ShowTopicUSers" />
         <activity android:name=".exploregroups" />
         <activity android:name=".groupchat" />

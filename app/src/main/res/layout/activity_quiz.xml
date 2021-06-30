@@ -30,18 +30,30 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/question"
-        android:layout_width="380dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="Who invented computer?"
         android:fontFamily="@font/montserrat_bold"
         android:textColor="@color/black"
         android:textSize="25dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/questionno"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionno" />
 
     <TextView
         android:id="@+id/option4"
@@ -49,8 +61,9 @@
         android:layout_height="wrap_content"
         android:background="@drawable/quiz_op"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Shivam Kumar Gupta"
+        android:paddingHorizontal="5dp"
         android:textAlignment="center"
+        android:visibility="invisible"
         android:textColor="@color/black"
         android:textSize="20dp"
         android:layout_marginTop="10dp"
@@ -59,24 +72,6 @@
         app:layout_constraintTop_toBottomOf="@+id/option3"
         android:gravity="center_horizontal" />
 
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="108dp"
-        android:background="@drawable/allinputsignin"
-        android:drawableLeft="@drawable/time"
-        android:drawablePadding="10dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:paddingLeft="10dp"
-        android:paddingRight="20dp"
-        android:text="1:00"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/option1"
@@ -84,11 +79,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:background="@drawable/quiz_op"
-        android:text="Suman Biswas"
         android:textAlignment="center"
         android:fontFamily="@font/montserrat_bold"
         android:textColor="@color/black"
         android:textSize="20dp"
+        android:visibility="invisible"
+        android:paddingHorizontal="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,11 +98,12 @@
         android:background="@drawable/quiz_op"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center_horizontal"
-        android:text="Saloni Sheth"
         android:textAlignment="center"
+        android:paddingHorizontal="5dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/black"
         android:textSize="20dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/option1" />
@@ -118,10 +115,11 @@
         android:background="@drawable/quiz_op"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center_horizontal"
-        android:text="Kevin Gandhi"
         android:textAlignment="center"
+        android:paddingHorizontal="5dp"
         android:textColor="@color/black"
         android:textSize="20dp"
+        android:visibility="invisible"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,6 +135,52 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:id="@+id/loading"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Loading..."
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/questionno" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationloading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/allinputsignin"
+        android:drawableLeft="@drawable/time"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="10dp"
+        android:paddingRight="20dp"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
