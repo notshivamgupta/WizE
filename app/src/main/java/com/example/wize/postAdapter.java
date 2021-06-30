@@ -43,7 +43,7 @@ import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.postHolder> {
+    public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.postHolder> {
     String user= FirebaseAuth.getInstance().getCurrentUser().getUid();
     private FirebaseFirestore abcdb = FirebaseFirestore.getInstance();
     Button dodelete, cancelfordelete,doreport;
@@ -127,7 +127,7 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
                         }
                         else
                         {
-                            Toast.makeText(view.getContext(), "Thank you!!.. for reporting the post we will look into the matter....", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(view.getContext(), "Thank you for reporting the post. Our team would look into it", Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
                         }
                     }
@@ -164,7 +164,7 @@ public class postAdapter extends FirestoreRecyclerAdapter<postModel,postAdapter.
                   @Override
                   public void onClick(View view) {
                      abcdb.collection("Posts").document(model.key).delete();
-                      Toast.makeText(view.getContext(), "You have deleted the post!...", Toast.LENGTH_SHORT).show();
+                      Toast.makeText(view.getContext(), "You have deleted the post.", Toast.LENGTH_SHORT).show();
                       dialog.dismiss();
                   }
               });
