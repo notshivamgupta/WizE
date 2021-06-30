@@ -74,4 +74,11 @@
         android:background="@drawable/quiz_op"
         />
 
+    <TextView
+        android:layout_width="275dp"
+        android:layout_height="64dp"
+        android:text="hi"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="634dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
