@@ -22,7 +22,6 @@ TextView cor,tim,sec;
         cor.setText(Integer.toString(a));
         tim.setText(Integer.toString(time/60));
         sec.setText(Integer.toString(time%60));
-        String s="hii";
     }
     @Override
     public void onBackPressed()

@@ -38,7 +38,6 @@ CountDownTimer time;
     private DatabaseReference dref;
     int correct = 0;
     String correct_ans;
-    String s="ds";
     public int counter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +64,7 @@ CountDownTimer time;
                         op3.setVisibility(View.VISIBLE);
                         op4.setVisibility(View.VISIBLE);
                         timer.setVisibility(View.VISIBLE);
+                        quesno.setVisibility(View.VISIBLE);
                     }
                 },2000);
         getquestion();
