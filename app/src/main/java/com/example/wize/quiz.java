@@ -38,6 +38,7 @@ CountDownTimer time;
     private DatabaseReference dref;
     int correct = 0;
     String correct_ans;
+    String s="ds";
     public int counter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
