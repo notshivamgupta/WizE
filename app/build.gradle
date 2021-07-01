@@ -60,4 +60,5 @@ dependencies {
     compile 'com.github.ceryle:SegmentedButton:v2.0.2'
     implementation 'com.firebaseui:firebase-ui-firestore:6.3.0'
     compile 'com.borjabravo:readmoretextview:2.1.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
