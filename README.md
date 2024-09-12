@@ -46,6 +46,13 @@ their knowledge accordingly.
 ![App Screenshot](https://i.postimg.cc/pTpG6xNv/Screenshot-20210702-200421.png)
 ![App Screenshot](https://i.postimg.cc/TwF78SGD/Screenshot-20210702-200517.png)
 
+## Tech Stack
+
+**Code:** Java, XML
+
+**Server:** Firebase/Firestore
+
+**Tools:** Figma, Android Studio
 
 
 ## 🚀 Future Prospect
