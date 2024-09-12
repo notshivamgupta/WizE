@@ -30,7 +30,7 @@ their knowledge accordingly.
 
 ![App Screenshot](https://i.ibb.co/mC3hphg/Onboarding.png)
 ![App Screenshot](https://i.ibb.co/YtRLH3F/Onboarding2.png)
-![App Screenshot]("https://i.ibb.co/qYGYvxC/Onboarding3.png")
+![App Screenshot](https://i.ibb.co/qYGYvxC/Onboarding3.png)
 ![App Screenshot](https://i.ibb.co/T167GTq/Onboarding4.png)
 ![App Screenshot](https://i.ibb.co/gFRkPdV/Sign-Up-1.png)
 ![App Screenshot](https://i.ibb.co/286wswG/Sign-In.png)
